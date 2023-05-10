@@ -6,7 +6,7 @@
   vars:
     image_name: ui
     ecr_repository: "{{ aws_account }}.dkr.ecr.{{ aws_region }}.amazonaws.com/{{ image_name }}"
-    aws_region: us-east-2
+    aws_region: eu-west-3
     # aws_profile: my-aws-profile
   var_files:
     - vars/common.yaml
@@ -17,14 +17,14 @@
 
     - name: Build Docker image
       docker_image:
-        name: "{{ image_name }}"        
+        name: "{{ image_name }}"
         tag: "{{ lookup('pipe', 'date +%Y-%m-%d@$H:%M:%S') }}"
         source: .
       register: docker_build
 
     - name: Authenticate with AWS ECR
       become: true
-      command: $(aws ecr get-login --no-include-email --region {{ aws_region }}) 
+      command: $(aws ecr get-login --no-include-email --region {{ aws_region }})
 
     - name: Tag Docker image
       docker_image:

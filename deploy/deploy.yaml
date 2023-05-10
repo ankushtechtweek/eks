@@ -4,10 +4,10 @@
 
   vars: 
     component: ui
-    aws_region: us-east-2
-    aws_account: 068668040281
-    k8s_kubeconfig: "/home/ec2-user/.kube/config"
-    k8s_context: "arn:aws:eks:{{ aws_region }}:{{ aws_account }}:cluster/ps-eks-fargate-{{ env }}"
+    aws_region: eu-west-3
+    aws_account: 653470767467
+    k8s_kubeconfig: "/root/.kube/config"
+    k8s_context: "arn:aws:eks:{{ aws_region }}:{{ aws_account }}:cluster/elk-stack"
 
 
   - name: Load Environment Variables
