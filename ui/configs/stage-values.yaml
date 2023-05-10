@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: 068668040281.dkr.ecr.us-east-2.amazonaws.com/ui
+  repository: 653470767467.dkr.ecr.eu-west-3.amazonaws.com/ui
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
@@ -25,10 +25,12 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext: {}
+podSecurityContext:
+  {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -42,26 +44,24 @@ service:
 
 ingress:
   name: ingress-ps-stage-ui
-#  Namespace: default
+  #  Namespace: default
   enabled: true
-#  className: "alb"
+  #  className: "alb"
   annotations:
     kubernetes.io/ingress.class: "alb"
     alb.ingress.kubernetes.io/load-balancer-name: ps-ui-eks-stage-ue2
     alb.ingress.kubernetes.io/backend-protocol: HTTP
-    alb.ingress.kubernetes.io/certificate-arn: "arn:aws:acm:us-east-2:068668040281:certificate/06fbe197-21ec-4dc1-b20f-395ac897f8c6"
     alb.ingress.kubernetes.io/healthcheck-path: /
-#    alb.ingress.kubernetes.io/inbound-cidrs: 18.116.79.120/32, 18.116.7.183/32
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    #    alb.ingress.kubernetes.io/inbound-cidrs: 18.116.79.120/32, 18.116.7.183/32
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
     alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS-1-2-2017-01
     alb.ingress.kubernetes.io/success-codes: "200"
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/group.name: dev
 
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: stage-ue2.app.propertyscout.io
+    - host: ""
       paths:
         - path: /*
           pathType: Prefix
@@ -74,8 +74,9 @@ ingress:
   tls:
     - hosts:
         - stage-ue2.app.propertyscout.io
-        
-resources: {}
+
+resources:
+  {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following

@@ -15,7 +15,7 @@ spec:
         app.kubernetes.io/name: ui
     spec:
       containers:
-        - image: 653470767467.dkr.ecr.eu-west-3.amazonaws.com/ui:latest
+        - image: 653470767467.dkr.ecr.eu-west-3.amazonaws.com/ui:43bb58
           imagePullPolicy: Always
           name: ui
           ports:
