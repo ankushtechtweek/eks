@@ -20,9 +20,9 @@ aws_account=068668040281
 
 #build
 docker build --no-cache -t ${component}:${version} -f ${path} .
-docker tag ${component}:${version} ${aws_account}.dkr.ecr.us-east-2.amazonaws.com/${component}:${version}
-aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin ${aws_account}.dkr.ecr.us-east-2.amazonaws.com
-docker push ${aws_account}.dkr.ecr.us-east-2.amazonaws.com/${component}:${version}
+docker tag ${component}:${version} ${aws_account}.dkr.ecr.eu-west-3.amazonaws.com/${component}:${version}
+aws ecr get-login-password --region eu-west-3 | docker login --username AWS --password-stdin ${aws_account}.dkr.ecr.eu-west-3.amazonaws.com
+docker push ${aws_account}.dkr.ecr.eu-west-3.amazonaws.com/${component}:${version}
 
 # deploy
 cd deploy/
