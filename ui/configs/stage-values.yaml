@@ -61,7 +61,7 @@ ingress:
 
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: ""
+    - host: stage-ue2.app.propertyscout.io
       paths:
         - path: /*
           pathType: Prefix
