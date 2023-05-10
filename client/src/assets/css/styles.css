@@ -1,0 +1,310 @@
+@import url('./form.css');
+@import url('./button.css');
+@import url('./flex.css');
+@import url('./modal.css');
+@import url('./tabs.css');
+@import url('./checkbox.css');
+@import url('./dropdown.css');
+@import url('./sidenav.css');
+@import url('./topnav.css');
+@import url('./orderbyGrid.css');
+@import url('./table.css');
+
+/* @font-face {
+  font-family: 'Europa-Regular';
+  src: url("https://db.onlinewebfonts.com/t/23c0fcab84d99da0de762de7e220a6e1.eot");
+  src: url("https://db.onlinewebfonts.com/t/23c0fcab84d99da0de762de7e220a6e1.eot?#iefix") format("embedded-opentype"),
+      url("https://db.onlinewebfonts.com/t/23c0fcab84d99da0de762de7e220a6e1.woff2") format("woff2"),
+      url("https://db.onlinewebfonts.com/t/23c0fcab84d99da0de762de7e220a6e1.woff") format("woff"),
+      url("https://db.onlinewebfonts.com/t/23c0fcab84d99da0de762de7e220a6e1.ttf") format("truetype"),
+      url("https://db.onlinewebfonts.com/t/23c0fcab84d99da0de762de7e220a6e1.svg#Europa") format("svg");
+}
+
+@font-face {
+  font-family: 'Europa-Bold';
+  src: url("https://db.onlinewebfonts.com/t/d3bfee78e8ead45d9057a95bb6ff5de8.eot");
+  src: url("https://db.onlinewebfonts.com/t/d3bfee78e8ead45d9057a95bb6ff5de8.eot?#iefix") format("embedded-opentype"),
+      url("https://db.onlinewebfonts.com/t/d3bfee78e8ead45d9057a95bb6ff5de8.woff2") format("woff2"),
+      url("https://db.onlinewebfonts.com/t/d3bfee78e8ead45d9057a95bb6ff5de8.woff") format("woff"),
+      url("https://db.onlinewebfonts.com/t/d3bfee78e8ead45d9057a95bb6ff5de8.ttf") format("truetype"),
+      url("https://db.onlinewebfonts.com/t/d3bfee78e8ead45d9057a95bb6ff5de8.svg#Europa-Bold") format("svg");
+} */
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 7px
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #55B7FF;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #55B7FF;
+}
+
+body, html {
+  min-height: 100vh;
+  font-weight: 400;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  background: #F5F6F9;
+}
+
+a {
+  color: #1189E1;
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}
+
+.mr-auto {
+  margin-left: auto !important;
+}
+
+.ml-5 {
+  margin-left: 5px !important;
+}
+
+.mr-5 {
+  margin-right: 5px !important;
+}
+
+.ml-10 {
+  margin-left: 10px !important;
+}
+
+.mr-10 {
+  margin-right: 10px !important;
+}
+
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+
+.pr-12 {
+  padding-right: 12px !important;
+}
+
+.pt-15 {
+  padding-top: 15px !important;
+}
+
+.pl-0 {
+  padding-left: 0px !important;
+}
+
+.pr-0 {
+  padding-right: 0px !important;
+}
+
+.btn-v-ellispis {
+  font-size: 34px;
+  line-height: 100%;
+  color: #879AB5;
+}
+
+.app-wrapper {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.side-menu-space {
+  padding-left: 140px;
+}
+
+.section-header {
+  font-size: 20px;
+  color: #414F64;
+  line-height: 32px;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.flex-auto-wrapper {
+  width: 100%;
+  flex: 1;
+}
+
+.order-sm {
+  width: 320px;
+}
+
+.font-size-12 {
+  font-size: 12px !important;
+}
+
+.font-size-14 {
+  font-size: 14px !important;
+}
+
+.font-size-16 {
+  font-size: 16px !important;
+}
+
+.relative {
+  position: relative;
+}
+
+::-webkit-input-placeholder {
+  color: #6F7378 !important;
+}
+
+::-moz-placeholder {
+  color: #6F7378;
+}
+
+::-ms-placeholder {
+  color: #6F7378;
+}
+
+::placeholder {
+  color: #6F7378 !important;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+/* breadcrum css start*/
+ul.breadcrumb {
+  padding: 10px 16px 10px 0px;
+  list-style-type: none;
+  margin: 0;
+}
+
+ul.breadcrumb li {
+  display: inline;
+  font-size: 12px;
+  color: #173043;
+}
+
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+ul.breadcrumb li a {
+  color: #1277C1;
+  text-decoration: none;
+}
+
+ul.breadcrumb li a:hover {
+  color: #1277C1;
+  text-decoration: underline;
+}
+
+/* breadcrum css end*/
+.img-responsive {
+  max-width: 100%;
+}
+
+.panel {
+  background-color: #fff;
+  box-shadow: 0px 0px 12px #112D3C0D;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+@media (max-width: 767px) {
+  .app-wrapper{
+    position: relative;
+    top: 150px;
+  }
+  .xs-invisible {
+      display: none !important;
+      position: relative;
+      top: 35px;
+  }
+  .task-container-wrapp {
+      flex-wrap: wrap;
+  }
+  .task-container-wrapp .flex-auto-wrapper{
+      flex: unset
+  }
+  .orderby-grid-container {
+      overflow-x: auto;
+  }
+  .orderby-grid-container .orderby-grid-item {
+      width: 185px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .sm-invisible {
+      display: none !important;
+  }
+}
+@media (min-width: 1025px) {
+  .md-invisible {
+      display: none !important;
+  }
+}
+
+google-auto-complete{
+  flex: 1 !important;
+}
+
+.StripeElement {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: white;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.f-13{
+ font-size: 13px;
+}
+
+.iti {
+  width:100%;
+ }
+
+ .text-blue {
+   color: #24AEF4 !important
+ }
+
+ .btn-disabled,
+ .btn-disabled[disabled] {
+   opacity: .4;
+   cursor: default !important;
+   pointer-events: none;
+ }
+
+ .switch.switch-small {
+  font-weight: bold !important;
+}

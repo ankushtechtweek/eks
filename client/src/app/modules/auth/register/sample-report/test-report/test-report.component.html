@@ -1,0 +1,151 @@
+<div class="d-flex create-order-details-screen">
+  <div class="order-list-details-left position-static">
+    <div class="list-view property-overview-section">
+      <ul class="list-group">
+        <li class="list-group-item item-details">
+          <div class="d-flex align-items-center justify-content-between">
+            <div *ngIf="!apn.APNcode; else apnSearch">
+              <div class="addr-text">{{address?.address}}</div>
+              <div class="leander-text">{{address?.city}}, {{address?.state}} {{address?.zip}}</div>
+            </div>
+            <ng-template #apnSearch>
+              <div>
+                <div class="addr-text">APN:{{apn?.APNcode}}</div>
+                <div class="leander-text">{{getAPNCounty(apn.FIPSCode)}}, {{getAPNState(apn.StateCode)}}</div>
+              </div>
+            </ng-template>
+            <label class="star-check">
+              <input
+                type="checkbox"
+                hidden
+              />
+              <img
+                class="inactive"
+                src="assets/icons/icon_whishlist.svg"
+                alt="icon_whishlist"
+              />
+              <img
+                class="active"
+                src="assets/icons/icon_whishlist_active.svg"
+                alt="icon_whishlist"
+              />
+            </label>
+          </div>
+          <div class="row">
+            <div class="col-4 ps-0 ms-0"><a
+                class="sample-btn"
+                download="Preliminary_Title_Report_Single_Home_Sample_Redacted"
+                target="_blank"
+                rel="noopener"
+                href="assets/Preliminary_Title_Report_Single_Home_Sample_Redacted.pdf"
+              ><em class="fa fa-file-pdf-o me-1"></em>PDF</a></div>
+          </div>
+        </li>
+        <li class="list-group-item item-details prop-heading pt-15 list-line-bottom">PROPERTY OVERVIEW</li>
+      </ul>
+    </div>
+    <div class="list-view">
+      <ul class="list-group">
+        <li
+          class="list-group-item hvr-grow"
+          *ngFor="let nav of searchNavs"
+          [class.list-line-bottom]="nav.isPremium"
+        >
+          <a
+            [ngClass]="{'d-flex align-items-center justify-content-between': nav.isPremium, 'icon-list-wrap' : !nav.isPremium,'active':activeTab === nav.route}"
+            (click)="nav.route === 'enhancement-docs' ? null : activeTab = nav.route"
+            role="tab"
+          >
+            <ng-container *ngIf="!nav.isPremium; else premium">
+              <div class="list-icon">
+                <img
+                  [src]="nav.icon"
+                  alt="icon_menu"
+                />
+              </div>
+              <span class="list-title">{{nav.tab}}</span>
+              <em
+                class="text-end fs-4 text-secondary"
+                *ngIf="nav.lock"
+              ></em>
+            </ng-container>
+            <ng-template #premium>
+              <div
+                class="prop-heading"
+                [routerLink]="nav.route"
+              >{{nav.tab}}</div>
+              <span class="hightlighter">Pro & Premium</span>
+            </ng-template>
+          </a>
+        </li>
+        <li
+          class="list-group-item hvr-grow"
+          *ngFor="let report of reportNavs"
+        >
+          <a
+            role="tab"
+            routerLinkActive="active"
+            [routerLink]="report.route"
+            class="icon-list-wrap"
+          >
+            <div class="list-icon"><img
+                [src]="report.icon"
+                alt="icon_menu"
+              /></div>
+            <span class="list-title fw-bold">{{report.tab}}</span>
+            <em
+              class="text-end fs-4 text-secondary"
+              *ngIf="report.lock"
+            ></em>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="order-list-details-right flex-1 position-static">
+    <div
+      class="map-links-sticky"
+      *ngIf="!positions.lat"
+    >
+      <div class="navigation-links">
+        <button class="btn"><img
+            src="assets/icons/icon_streetmap.svg"
+            alt=""
+          /></button>
+        <button class="btn"><img
+            src="assets/icons/icon_maps.svg"
+            alt=""
+          /></button>
+        <button class="btn"><img
+            src="assets/icons/icon_photos.svg"
+            alt=""
+          /></button>
+      </div>
+    </div>
+    <div class="tab-content tab-content-container">
+      <div [ngSwitch]="activeTab">
+        <div *ngSwitchCase="'property-records'">
+          <app-test-property-records
+            [address]="address"
+            [positions]="positions"
+          ></app-test-property-records>
+        </div>
+        <div *ngSwitchCase="'maps-photos'">
+          <app-test-maps-photos></app-test-maps-photos>
+        </div>
+        <div *ngSwitchCase="'structure-details'">
+          <app-test-structure-details></app-test-structure-details>
+        </div>
+        <div *ngSwitchCase="'deed-info'">
+          <app-test-deed-info></app-test-deed-info>
+        </div>
+        <div *ngSwitchCase="'mortgage-history'">
+          <app-test-mortgage-history></app-test-mortgage-history>
+        </div>
+        <div *ngSwitchCase="'residents'">
+          <app-test-residents></app-test-residents>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

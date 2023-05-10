@@ -1,0 +1,46 @@
+<div class="modal-header">
+  <h4 class="modal-title">PDF Report download (Optional fields)</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  ></button>
+</div>
+<div class="modal-body">
+  <p class="h6 text-center">Do you wish to add custom fields to your report?</p>
+  <p class="h6 text-center">If Yes: fill the following fields and "Proceed to Download"
+    If No: Skip to "Proceed to Download"</p>
+  <div class="row g-3 mt-3" [formGroup]="optionalForm">
+    <div class="col-md-12">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Policyholder’s/Account Name here"
+        aria-label="policyholder"
+        formControlName="ownerName"
+      >
+    </div>
+    <div class="col-md-12">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter Case/Reference # here"
+        aria-label="case"
+        formControlName="refId"
+      >
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-dismiss"
+    (click)="activeModal.close('Close click')"
+  >Cancel</button>
+  <button
+    type="button"
+    class="btn orange-btn"
+    (click)="proceedWithDownload()"
+  >Proceed With Download</button>
+</div>

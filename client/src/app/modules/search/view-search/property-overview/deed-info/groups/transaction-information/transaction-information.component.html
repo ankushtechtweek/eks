@@ -1,0 +1,42 @@
+<div class="panel-heading text-uppercase">Transaction Information</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">Transaction Type</div>
+      <div
+        class="info-desc"
+        *ngIf="!ss.noHistoricalData.getValue();else noResult"
+      >{{staticSer.getTransactionType(ss.hisTransactions.Records[0].TxDefInfo.TransactionType) || '-'}}</div>
+      <ng-template #noResult>
+        <div class="info-desc">-</div>
+      </ng-template>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Foreclosure Sale</div>
+      <div class="info-desc">{{ss.hisTransactions.Records[0].TxDefInfo.ForclosureAuctionSale || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Quit Claim Deed</div>
+      <div class="info-desc">{{ss.hisTransactions.Records[0].TxDefInfo.QuitclaimFlag || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Arms Length Transaction</div>
+      <div
+        class="info-desc"
+        *ngIf="!ss.noHistoricalData.getValue();else noArmsLength"
+      >{{staticSer.getArmsLengthFlag(ss.hisTransactions.Records[0].TxDefInfo.ArmsLengthFlag) || '-'}}
+      </div>
+      <ng-template #noArmsLength>
+        <div class="info-desc">-</div>
+      </ng-template>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Transfer Amount</div>
+      <div class="info-desc">{{ss.hisTransactions.Records[0].TxAmtInfo.TransferAmount || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Transfer Tax Total</div>
+      <div class="info-desc">{{ss.hisTransactions.Records[0].TxAmtInfo.TransferTaxTotal || '-'}}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="property-details-sections panel">
+  <div class="property-section-header fw-bold">Property Records</div>
+  <div class="panel-heading text-uppercase">PROPERTY OWNERSHIP</div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <div>
+          <div class="info-title">OWNER’S NAME(S)</div>
+          <div class="info-user sub-text">Lorem, ipsum.</div>
+        </div>
+        <div>
+          <div class="info-title">SPOUSE</div>
+          <div class="info-user sub-text">Lorem, ipsum dolor.</div>
+        </div>
+      </div>
+      <div class="col-md-4 p-0">
+        <img
+          [src]="address?.test ? 'assets/icons/sample-prop.jpg' : getGoogleImage(address)"
+          class="img-responsive "
+          alt=""
+        />
+      </div>
+      <div class="col-md-4 p-0">
+        <ng-container *ngIf="positions.lng;else defaultMap">
+          <agm-map
+            #AgmMap
+            [latitude]="positions.lat"
+            [zoom]=17
+            [longitude]="positions.lng"
+            [mapTypeId]='googleMapType.roadMap'
+          >
+            <agm-marker
+              [latitude]="positions.lat"
+              [longitude]="positions.lng"
+            >
+            </agm-marker>
+          </agm-map>
+        </ng-container>
+        <ng-template #defaultMap>
+          <img
+            [src]="'assets/icons/google-map.57553438.jpg'"
+            class="img-responsive "
+            alt=""
+          />
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngFor="let field of fields  | keyvalue">
+    <div class="panel-heading text-uppercase">{{field.key}}</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3" *ngFor="let key of field.value">
+          <div class="info-title">{{key}}</div>
+          <div class="info-desc sub-text">Lorem ipsum</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

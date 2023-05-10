@@ -1,0 +1,33 @@
+<div class="panel-heading text-uppercase">Primary Grantee</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">Full Name</div>
+      <div class="info-user">{{ss.hisTransactions.Records[0].PrimaryGrantee.Name1Full || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Class Type</div>
+      <div class="info-desc">{{ss.hisTransactions.Records[0].PrimaryGrantee.Name1ClassType || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Legal Type</div>
+      <div
+        class="info-desc"
+        *ngIf="!ss.noHistoricalData.getValue();else noResult"
+      >{{staticSer.getLegalType(ss.hisTransactions.Records[0].PrimaryGrantee.Name1LegalType) || '-'}}</div>
+      <ng-template #noResult>
+        <div class="info-desc">-</div>
+      </ng-template>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">Full Name</div>
+      <div class="info-user">{{ss.hisTransactions.Records[0].PrimaryGrantee.Name2Full || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Class Type</div>
+      <div class="info-desc">{{ss.hisTransactions.Records[0].PrimaryGrantee.Name2ClassType || '-'}}</div>
+    </div>
+  </div>
+</div>

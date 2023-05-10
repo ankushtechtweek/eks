@@ -1,0 +1,115 @@
+<div class="property-section-header fw-bold">Mortgage History</div>
+<ng-container *ngIf="ss.isHisTransactions; else noResult">
+  <ng-container *ngFor="let mortgage of ss.hisTransactions.Records; let i = index">
+    <div class="panel-heading text-uppercase">Mortgage {{i+1}}</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info-title">Sale Amount</div>
+          <div class="info-desc">{{mortgage.TxAmtInfo.TransferAmount || '-'}}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Recorded Date</div>
+          <div class="info-desc">{{(mortgage.Mortgage1.RecordingDate | psDate) || '-'}}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Transfer Type Code</div>
+          <div class="info-desc">{{mortgage.TxDefInfo.TransferInfoPurchaseTypeCode || '-' }}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Transfer Tax Total</div>
+          <div class="info-desc">{{(mortgage.TxAmtInfo.TransferTaxTotal | currency) || '-'}}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Transaction Type</div>
+          <div
+            class="info-desc"
+            *ngIf="!ss.noHistoricalData.getValue();else noResult"
+          >{{staticSer.getTransactionType(mortgage.TxDefInfo.TransactionType) }}</div>
+          <ng-template #noResult>
+            <div class="info-desc">-</div>
+          </ng-template>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Instrument Date</div>
+          <div class="info-desc">{{(mortgage.DocInfo.InstrumentDate | psDate) || '-'}}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Foreclosure Sale</div>
+          <div class="info-desc">{{(mortgage.TxDefInfo.ForclosureAuctionSale | currency) || '-'}}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Transfer Tax County</div>
+          <div class="info-desc">{{mortgage.TxAmtInfo.TransferTaxCounty}}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Buyer(s)</div>
+          <div class="info-desc">{{ mortgage.PrimaryGrantee.Name1Full || '-' }}</div>
+          <div class="info-desc">{{ mortgage.PrimaryGrantee.Name1Full || '-' }}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Seller(s)</div>
+          <div class="info-desc">{{ mortgage.PrimaryGrantor.Name1Full || '-' }}</div>
+          <div class="info-desc">{{ mortgage.PrimaryGrantor.Name2Full || '-' }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-heading text-uppercase">Mortgage {{i+1}} Details</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info-title">Mortgage Amount</div>
+          <div class="info-desc">{{ (mortgage.Mortgage1.Amount | currency) || '-' }}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">2nd Mortgage Amount</div>
+          <div class="info-desc">{{ (mortgage.Mortgage2.Amount | currency) || '-' }}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Est. Down Payment</div>
+          <div class="info-desc">{{ (mortgage.Valuation.EstDownPayment | currency) || '-' }}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Est. Loan to Value</div>
+          <div class="info-desc">{{ mortgage.Valuation.EstLTV || '-' }}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Recorded Date</div>
+          <div class="info-desc">{{ (mortgage.Mortgage1.RecordingDate | psDate) || '-' }}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Interest Rate</div>
+          <div class="info-desc">{{ mortgage.Mortgage1.InterestRate || '-' }}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Interest Type</div>
+          <div class="info-desc">{{ mortgage.Mortgage1.InterestRateType || '-' }}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Interest Only</div>
+          <div class="info-desc">{{ mortgage.Mortgage1.InterestOnlyFlag || '-' }}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Buyer(s)</div>
+          <div class="info-desc"> {{ mortgage.PrimaryGrantee.Name1Full || '-' }}</div>
+          <div class="info-desc"> {{ mortgage.PrimaryGrantee.Name2Full || '-'}}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Lender(s)</div>
+          <div class="info-desc"> {{ mortgage.Mortgage1.LenderFullName || '-' }}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">2nd Mortgage Lender</div>
+          <div class="info-desc">{{ mortgage.Mortgage2.LenderFullName || '-' }}</div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-title">Is Lender Seller?</div>
+          <div class="info-desc">{{ mortgage.Mortgage1.IsLenderSeller || '-' }}</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
+<ng-template #noResult>
+  <p class="text-center text-danger">No financial information is available.</p>
+</ng-template>

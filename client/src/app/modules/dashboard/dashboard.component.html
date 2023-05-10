@@ -1,0 +1,19 @@
+<div class="app-wrapper side-menu-space mt-2">
+  <app-today-tasks></app-today-tasks>
+  <div class="d-flex mt-2 task-container-wrapp">
+    <div class="flex-auto-wrapper">
+      <div class="section-header text-capitalize h5">Create File/Order by</div>
+      <!-- searchBy grid start -->
+      <app-search-by></app-search-by>
+      <!-- searchBy grid end -->
+      <!-- thumbnail grid start -->
+      <app-recent-search-history (recentSearches)="recentSearches = $event" (resultsFound)="noResultFound = $event"></app-recent-search-history>
+      <!-- thumbnail grid end -->
+    </div>
+    <div class="order-sm">
+      <!--recent orders start -->
+      <app-recent-searches [recentSearches]="recentSearches" [noResultFound]="noResultFound"></app-recent-searches>
+      <!--recent orders end -->
+    </div>
+  </div>
+</div>

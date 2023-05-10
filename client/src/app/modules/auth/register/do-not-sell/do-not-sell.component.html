@@ -1,0 +1,160 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-8">
+      <p class="h6 m-3 text-center">We respect and understand you may not want your personal information sold. If you
+        would
+        like to continue with a "do not sell my information" request, please provide the following information:</p>
+    </div>
+  </div>
+</div>
+
+
+<div
+  class="modal d-block custom-modal modal-lg position-static"
+  tabindex="-1"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">DO NOT SELL MY PERSONAL INFORMATION</h4>
+      </div>
+      <div class="modal-body">
+        <div
+          class="sr-field-error text-center bg-white text-danger"
+          id="card-errors"
+        ></div>
+        <form
+          class="row g-3"
+          [formGroup]="dontSellForm"
+        >
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              id="firstname"
+              formControlName="firstname"
+              placeholder="First Name"
+              aria-label="firstname"
+              [ngClass]="{ 'is-invalid':f['firstname'].touched && f['firstname'].errors }"
+            >
+            <span
+              *ngIf="f['firstname'].touched && f['firstname'].errors"
+              class="error-message"
+            >
+              <div *ngIf="f['firstname'].errors['required']">First Name is required</div>
+            </span>
+          </div>
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              id="lastname"
+              formControlName="lastname"
+              placeholder="Last Name"
+              aria-label="lastname"
+              [ngClass]="{ 'is-invalid':f['lastname'].touched && f['lastname'].errors }"
+            >
+            <span
+              *ngIf="f['lastname'].touched && f['lastname'].errors"
+              class="error-message"
+            >
+              <div *ngIf="f['lastname'].errors['required']">Last Name is required</div>
+            </span>
+          </div>
+          <div class="col-md-12">
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Email"
+              formControlName="email"
+              aria-label="email"
+              [ngClass]="{ 'is-invalid':f['email'].touched && f['email'].errors }"
+            >
+            <span
+              *ngIf="f['email'].touched && f['email'].errors"
+              class="error-message"
+            >
+              <div *ngIf="f['email'].errors['required']">Email is required</div>
+              <div *ngIf="f['email'].errors['pattern']">Email is invalid</div>
+            </span>
+          </div>
+          <div class="col-md-12">
+            <textarea
+              class="form-control"
+              placeholder="Address"
+              formControlName="address"
+              aria-label="address"
+              [ngClass]="{ 'is-invalid':f['address'].touched && f['address'].errors }"
+              rows="3"
+            ></textarea>
+            <span
+              *ngIf="f['address'].touched && f['address'].errors"
+              class="error-message"
+            >
+              <div *ngIf="f['address'].errors['required']">Address is required</div>
+            </span>
+          </div>
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              id="city"
+              formControlName="city"
+              placeholder="City"
+              aria-label="city"
+              [ngClass]="{ 'is-invalid':f['city'].touched && f['city'].errors }"
+            >
+            <span
+              *ngIf="f['city'].touched && f['city'].errors"
+              class="error-message"
+            >
+              <div *ngIf="f['city'].errors['required']">City is required</div>
+            </span>
+          </div>
+          <div class="col-md-6">
+            <select
+              class="form-select form-control"
+              formControlName="state"
+              [ngClass]="{ 'is-invalid':f['state'].touched && f['state'].errors }"
+            >
+              <option
+                *ngFor="let state of states"
+                [value]="state.abbreviation"
+              >{{state.name}}</option>
+            </select>
+            <span
+              *ngIf="f['state'].touched && f['state'].errors"
+              class="error-message"
+            >
+              <div *ngIf="f['state'].errors['required']">State is required</div>
+            </span>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer p-3 pt-0">
+        <div class="form-check  text-center me-auto">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            checked
+            value=""
+          >
+          <label
+            class="form-check-label text-dark"
+            for="iUnderstand"
+          >
+            Do not sell my personal information
+          </label>
+        </div>
+        <button
+          type="button"
+          class="btn orange-btn"
+          (click)="onSubmit()"
+        >Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

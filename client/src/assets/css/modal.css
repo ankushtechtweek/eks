@@ -1,0 +1,38 @@
+.custom-modal .modal-header {
+    background: #F2F9FE;
+    border-radius: 6px;
+}
+.custom-modal .modal-header .modal-title {
+    color: #173043;
+    font-size: 18px;
+    font-weight: 500;
+}
+.modal-backdrop {
+    background: #002948E6;
+    border: 1px solid #707070;
+    opacity: 0.69;
+}
+.custom-modal .modal-body {
+    padding: 20px;
+}
+.custom-modal .modal-footer {
+    border-top: none !important;
+    padding: 20px;
+}
+.custom-modal .modal-footer .btn {
+    text-transform: uppercase;
+    /* font-family: 'Europa-Bold'; */
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 25px;
+    padding: 5px 20px;
+}
+.custom-modal .btn-dismiss {
+    color: #5C5C5C !important;
+    border: 1px solid #AFAFAF !important;
+}
+.custom-modal .btn-ok{
+    background: #23ABF0 !important;
+    border: 1px solid #23ABF0 !important;
+    color: #ffffff !important;
+}

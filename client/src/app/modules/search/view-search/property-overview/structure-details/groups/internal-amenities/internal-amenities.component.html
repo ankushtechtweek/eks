@@ -1,0 +1,45 @@
+<div class="panel-heading text-uppercase">Internal Amenities</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">Fireplace</div>
+      <div class="info-desc">{{staticSer.getFireplace(ss.propertRecord.IntAmenities.Fireplace) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Fireplace Count</div>
+      <div class="info-desc">{{ss.propertRecord.IntAmenities.FireplaceCount || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Accessability Elevator</div>
+      <div class="info-desc">{{staticSer.getAccessabilityElevator(ss.propertRecord.IntAmenities.AccessabilityElevatorFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Accessability Handicap</div>
+      <div class="info-desc">{{staticSer.getAccessabilityHandicap(ss.propertRecord.IntAmenities.AccessabilityHandicapFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Escalator</div>
+      <div class="info-desc">{{staticSer.getEscalator(ss.propertRecord.IntAmenities.EscalatorFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Central Vacuum</div>
+      <div class="info-desc">{{staticSer.getCentralVacuum(ss.propertRecord.IntAmenities.CentralVacuumFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Intercom</div>
+      <div class="info-desc">{{staticSer.getIntercom(ss.propertRecord.IntAmenities.IntercomFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Sound System</div>
+      <div class="info-desc">{{staticSer.getSoundSystem(ss.propertRecord.IntAmenities.SoundSystemFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Wet Bar</div>
+      <div class="info-desc">{{staticSer.getWetBarm(ss.propertRecord.IntAmenities.WetBarFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Security Alarm</div>
+      <div class="info-desc">{{staticSer.getSecurityAlarm(ss.propertRecord.IntAmenities.SecurityAlarmFlag) || '-'}}</div>
+    </div>
+  </div>
+</div>

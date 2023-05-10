@@ -1,0 +1,104 @@
+<div [ngClass]="{'menu--opened': ss.toggleSideMenu.value}">
+  <aside class="sidebar-navigation">
+    <div class="mobile-menu-text">
+      <div class="text-menu">Menu</div>
+      <button
+        id="closeMenu"
+        class="close"
+        (click)="ss.toggleSideMenu.next(false)"
+      >&times;</button>
+    </div>
+    <ul class="side-menus">
+      <li
+        routerLinkActive="active"
+        [routerLink]="['dashboard']"
+        (click)="ss.toggleSideMenu.next(false)"
+        #dashboard="routerLinkActive"
+      >
+        <a>
+          <img
+            class="inactive-icon"
+            [src]="dashboard.isActive ? 'assets/icons/icon_dashboard1_active.png' : 'assets/icons/icon_dashboard1.png'"
+            alt="icon_dashboard"
+          />
+          <div class="fw-bold">Dashboard</div>
+        </a>
+      </li>
+      <li
+        routerLinkActive="active"
+        [routerLink]="['search/new-search']"
+        (click)="ss.toggleSideMenu.next(false)"
+        #newSearch="routerLinkActive"
+      >
+        <a>
+          <img
+            [class]="newSearch.isActive ? 'active-icon' : 'inactive-icon'"
+            [src]="newSearch.isActive ? 'assets/icons/new-search-active.png' : 'assets/icons/new-search.png'"
+            alt="icon_orders"
+          />
+          <div class="fw-bold">New Search</div>
+        </a>
+      </li>
+      <li
+        routerLinkActive="active"
+        [routerLink]="['search']"
+        (click)="ss.toggleSideMenu.next(false)"
+        #orders="routerLinkActive"
+      >
+        <a>
+          <img
+            [class]="orders.isActive ? 'active-icon' : 'inactive-icon'"
+            [src]="orders.isActive ? 'assets/icons/icon_inspection_active.png' : 'assets/icons/icon_inspection.png'"
+            alt="icon_orders"
+          />
+          <div class="fw-bold">Search History</div>
+        </a>
+      </li>
+      <li
+        routerLinkActive="active"
+        [routerLink]="['download-history']"
+        (click)="ss.toggleSideMenu.next(false)"
+        #downloads="routerLinkActive"
+      >
+        <a>
+          <img
+            class="inactive-icon"
+            [src]="downloads.isActive ? 'assets/icons/icon_file_active.png' : 'assets/icons/icon_file.png'"
+            alt="icon_downloads"
+          />
+          <div class="fw-bold">Download History</div>
+        </a>
+      </li>
+      <li
+        routerLinkActive="active"
+        [routerLink]="['favorites']"
+        (click)="ss.toggleSideMenu.next(false)"
+        #favorites="routerLinkActive"
+      >
+        <a>
+          <img
+            class="inactive-icon"
+            [src]="favorites.isActive ? 'assets/icons/icon_star_active.png' : 'assets/icons/icon_star.png'"
+            alt="icon_favorites"
+          />
+          <div class="fw-bold">Favorites</div>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://propertyscout.io/faqs/"
+          target="_blank"
+          rel="noopener"
+          class="text-decoration-none"
+        >
+          <img
+            class="inactive-icon"
+            [src]="'assets/icons/question-active.png'"
+            alt="icon_favorites"
+          />
+          <div class="fw-bold">FAQs</div>
+        </a>
+      </li>
+    </ul>
+  </aside>
+</div>

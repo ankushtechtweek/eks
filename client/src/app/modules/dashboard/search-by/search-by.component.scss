@@ -1,0 +1,19 @@
+// @import '../../../../assets/css/orderbyGrid.css';
+
+::ng-deep {
+  .hvr-sweep-to-right:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    background: transparent linear-gradient(180deg, #E2F6FF 0%, #CBE2F4 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 12px #233F5817;
+    border-radius: 12px;
+  }
+
+  .orderby-grid-item:hover > .orderby-grid-box h4 {
+    color:  #21AAF2 !important;
+  }
+}

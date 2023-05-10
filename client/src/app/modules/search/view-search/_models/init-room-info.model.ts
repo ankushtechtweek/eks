@@ -1,0 +1,29 @@
+export class IntRoomInfo {
+  BathCount!: string;
+  BathPartialCount!: string;
+  BedroomsCount!: string;
+  BonusRoomFlag!: string;
+  BreakfastNookFlag!: string;
+  CellarFlag!: string;
+  CellarWineFlag!: string;
+  ExcerciseFlag!: string;
+  FamilyCode!: string;
+  GameFlag!: string;
+  GreatFlag!: string;
+  HobbyFlag!: string;
+  LaundryFlag!: string;
+  MediaFlag!: string;
+  MudFlag!: string;
+  OfficeArea!: string;
+  OfficeFlag!: string;
+  RoomsCount!: string;
+  SafeRoomFlag!: string;
+  SittingFlag!: string;
+  StoriesCount!: string;
+  StormShelter!: string;
+  StudyFlag!: string;
+  SunroomFlag!: string;
+  UnitsCount!: string;
+  UtilityArea!: string;
+  UtilityCode!: string;
+}

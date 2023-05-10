@@ -1,0 +1,82 @@
+<ng-container *ngIf="userForm">
+  <div class="modal-header">
+    <h4 class="modal-title">Update Account Details</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="activeModal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div
+    class="modal-body form-floating-borderless"
+    [formGroup]="userForm"
+  >
+    <div class="form-floating mb-3 mt-2">
+      <input
+        type="text"
+        class="form-control login-field"
+        id="firstName"
+        placeholder=" "
+        formControlName="firstName"
+        name="firstName"
+        [ngClass]="{ 'is-invalid':f['firstName'].touched && f['firstName'].errors }"
+      />
+      <label for="firstName">First Name</label>
+    </div>
+    <div class="form-floating mb-3 mt-2">
+      <input
+        type="text"
+        class="form-control login-field"
+        id="lastName"
+        placeholder=" "
+        formControlName="lastName"
+        [ngClass]="{ 'is-invalid':f['lastName'].touched && f['lastName'].errors }"
+        name="lastName"
+      />
+      <label for="lastName">Last Name</label>
+    </div>
+    <div class="form-floating mb-3 mt-2">
+      <input
+        type="email"
+        [value]="currentUser.email"
+        class="form-control login-field"
+        id="email"
+        placeholder=" "
+        disabled
+        name="email"
+      />
+      <label for="email">Email</label>
+    </div>
+    <ngx-intl-tel-input
+      [preferredCountries]="[CountryISO.UnitedStates, CountryISO.UnitedKingdom]"
+      [enableAutoCountrySelect]="true"
+      [enablePlaceholder]="true"
+      [searchCountryFlag]="true"
+      customPlaceholder="Phone Number"
+      [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+      [selectFirstCountry]="false"
+      [selectedCountryISO]="CountryISO.UnitedStates"
+      [cssClass]="f['phone'].touched && f['phone'].errors ? 'form-control is-invalid' : 'form-control'"
+      [maxLength]="15"
+      [phoneValidation]="true"
+      [separateDialCode]="true"
+      name="phone"
+      formControlName="phone"
+      [phoneValidation]="true"
+      (focusout)="focusOut()"
+    ></ngx-intl-tel-input>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-dismiss"
+      (click)="activeModal.close('Close click')"
+    >Cancel</button>
+    <button
+      type="button"
+      class="btn btn-ok"
+      (click)="updateUser()"
+    >Update</button>
+  </div>
+</ng-container>

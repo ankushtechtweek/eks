@@ -1,0 +1,53 @@
+<ng-container *ngIf="ss.isPropertyRecord; else noResult">
+  <div class="property-section-header fw-bold">Parcel Map & Photos</div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel-heading text-uppercase">Street view</div>
+      <div class="panel-body pl-0 pr-0">
+        <div id="streetview-pano"></div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel-heading text-uppercase">Satellite view</div>
+      <div class="panel-body pl-0 pr-0">
+        <agm-map
+          #AgmMap
+          [latitude]="ss.propertRecord.PropertyAddress.Latitude | number"
+          [zoom]=17
+          [longitude]="ss.propertRecord.PropertyAddress.Longitude | number"
+          [mapTypeId]='googleMapType.satellite'
+        >
+          <agm-marker
+            [latitude]="ss.propertRecord.PropertyAddress.Latitude | number"
+            [longitude]="ss.propertRecord.PropertyAddress.Longitude | number"
+          >
+          </agm-marker>
+        </agm-map>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="panel-heading text-uppercase">
+        <div class="d-inline-block">
+          <strong class="mr-2">Map View</strong>
+        </div>
+        <div class="d-inline-block">
+          <span class="ms-3 me-1 fw-bold">Parcel Map</span>
+          <ui-switch
+            size="small"
+            defaultBgColor='#00ACFF'
+            uncheckedLabel="Off"
+            checkedLabel="On"
+            [(ngModel)]="parcelMapSwitch"
+            [beforeChange]="onBeforeChange"
+            (valueChange)="drawPolygon($event)"
+          ></ui-switch>
+        </div>
+      </div>
+      <div class="panel-body pl-0 pr-0">
+        <div id="roadMap"></div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #noResult>
+</ng-template>

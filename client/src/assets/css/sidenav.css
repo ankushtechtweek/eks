@@ -1,0 +1,113 @@
+.sidebar-navigation {
+  width: 134px;
+  overflow-y: auto;
+  position: fixed;
+  left: 0;
+  top: 80px;
+  bottom: 0;
+  z-index: 9;
+}
+.sidebar-navigation:not(:hover)::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+.sidebar-navigation ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto 0 auto;
+  background-color: #fff;
+  box-shadow: 0px 0px 6px #3E78A333;
+  text-align: center;
+  width: 97px;
+}
+
+.sidebar-navigation > ul > li {
+  color: #6A8991;
+  font-size: 12px;
+  min-height: 97px;
+  display: flex;
+  box-sizing: border-box;
+}
+.sidebar-navigation > ul > li > a {
+  padding: 10px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  cursor: pointer;
+}
+/* .sidebar-navigation > ul > li > a .active-icon {
+  display: none;
+} */
+.sidebar-navigation ul li:hover,
+.sidebar-navigation ul li.active {
+  background: #F2F9FE
+}
+/* .sidebar-navigation > ul > li:hover > a .active-icon {
+  display: block;
+}
+.sidebar-navigation > ul > li:hover > a .inactive-icon {
+  display: none;
+} */
+
+.mobile-menu-text {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .sidebar-navigation {
+      display: none;
+  }
+
+  .sidebar-navigation::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      background-color: #fff;
+      width: 137px;
+      z-index: -1;
+  }
+
+  .menu--opened .sidebar-navigation {
+      display: block;
+      top: 0;
+      width: 100%;
+      background-color: rgba(17, 29, 52, .6);
+      z-index: 99999;
+  }
+
+  .menu--opened .sidebar-navigation ul {
+      margin-left: 18px;
+  }
+
+  body .app-wrapper {
+      padding-left: 15px !important;
+  }
+
+  .mobile-menu-text {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 4px 12px 4px 15px;
+      width: 134px;
+  }
+
+  .mobile-menu-text .text-menu {
+      font-size: 12pt;
+  }
+
+  .mobile-menu-text .close {
+      font-size: 25pt;
+      background-color: transparent;
+      border: none;
+      color: #707070;
+  }
+}

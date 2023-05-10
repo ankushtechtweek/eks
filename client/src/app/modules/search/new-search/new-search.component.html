@@ -1,0 +1,38 @@
+<div class="app-wrapper side-menu-space order-map-image">
+  <div class="relative">
+    <div class="order-bread-crums">
+      <div
+        class="orders-text"
+        [routerLink]="'/search'"
+        role="button"
+      >Search /</div>
+      <div class="create-order-text">New Search</div>
+    </div>
+    <div class="default-tabs-wrapper">
+      <div class="default-tabs-container d-flex justify-content-between">
+        <ul
+          ngbNav
+          #nav="ngbNav"
+          [activeId]="active"
+          class="nav-tabs"
+        >
+          <li
+            [ngbNavItem]="nav.nav"
+            *ngFor="let nav of navItems"
+          >
+            <a
+              ngbNavLink
+              [routerLink]="nav.route"
+              routerLinkActive="active"
+              class="text-uppercase"
+            >{{nav.nav}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-content bg-white pb-3 pt-3 tab-content-container">
+        <div class="container-fluid">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,41 @@
+<div
+  class="table-grid table-responsive"
+  *ngIf="searches.items && searches.items.length"
+>
+  <table
+    class="table table-borderless table-striped"
+    aria-describedby="orders-table"
+  >
+    <thead>
+      <tr>
+        <th><span>Date Searched</span></th>
+        <th><span>Address</span></th>
+        <th><span>Actions</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let row of searches.items | paginate: { id:'downloads', itemsPerPage:pager.itemsPerPage, currentPage: pager.currentPage, totalItems: searches.rowCount }"
+      >
+        <td class="">{{ row?.createdDate | date: 'MM/dd/yyyy hh:mm a'}}</td>
+        <td class="fw-bold text-blue"> {{ row.appApplications.propertyAddressNavigation?.street }},
+          {{ row.appApplications.propertyAddressNavigation?.city }},
+          {{ row.appApplications.propertyAddressNavigation?.state?.abbreviation }},
+          {{row.appApplications.propertyAddressNavigation?.zipCode}}</td>
+        <td> <a
+            role="button"
+            class="text-blue"
+            (click)="download(row)"
+          >Download {{reportName(row.orderType)}} Report</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center mt-5">
+    <pagination-controls
+      (pageChange)="setPage($event)"
+      id='downloads'
+    ></pagination-controls>
+  </div>
+</div>
+<ng-container *ngIf="noResultFound">
+</ng-container>

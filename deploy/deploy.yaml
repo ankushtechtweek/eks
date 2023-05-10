@@ -1,0 +1,29 @@
+- name: Build and push Docker image to AWS ECR
+  hosts: "{{ env }}"
+  gather_facts: no
+
+  vars: 
+    component: ui
+    aws_region: us-east-2
+    aws_account: 068668040281
+    k8s_kubeconfig: "/home/ec2-user/.kube/config"
+    k8s_context: "arn:aws:eks:{{ aws_region }}:{{ aws_account }}:cluster/ps-eks-fargate-{{ env }}"
+
+
+  - name: Load Environment Variables
+    include_vars: "vars/{{ env }}.yaml"
+
+  - name: Create deployment file from template
+    template:
+      src: deploy/template.yaml
+      dest: deploy/{{ component }}.yaml
+      mode: 0644
+      
+  - name: Deploy to Kubernetes
+    k8s:
+      state: present
+      definition: "{{ lookup('file', 'deploy/' + {{ component }} + '.yaml') }}"
+      namespace: default
+      context: "{{ k8s_context }}"
+      kubeconfig: "{{ k8s_kubeconfig }}"
+    register: k8s_deploy

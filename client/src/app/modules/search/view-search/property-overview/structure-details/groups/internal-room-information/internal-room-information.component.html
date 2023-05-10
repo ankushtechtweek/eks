@@ -1,0 +1,115 @@
+<div class="panel-heading text-uppercase">Internal Room Information</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">Bathrooms Count</div>
+      <div class="info-desc">{{ss.propertRecord.IntRoomInfo.BathCount || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Partial Bathrooms Count</div>
+      <div class="info-desc">{{ss.propertRecord.IntRoomInfo.BathPartialCount || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Bedrooms Count</div>
+      <div class="info-desc">{{ss.propertRecord.IntRoomInfo.BedroomsCount || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Rooms Count</div>
+      <div class="info-desc">{{ss.propertRecord.IntRoomInfo.RoomsCount || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Stories Count</div>
+      <div class="info-desc">{{ss.propertRecord.IntRoomInfo.StoriesCount || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Units Count</div>
+      <div class="info-desc">{{ss.propertRecord.IntRoomInfo.UnitsCount || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Bonus Room</div>
+      <div class="info-desc">{{staticSer.getBonusRoom(ss.propertRecord.IntRoomInfo.BonusRoomFlag) || '-'}}</div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="info-title">Breakfast Nook</div>
+      <div class="info-desc">{{staticSer.getBreakfastNook(ss.propertRecord.IntRoomInfo.BreakfastNookFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Cellar</div>
+      <div class="info-desc">{{staticSer.getCellar(ss.propertRecord.IntRoomInfo.CellarFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Wine Cellar</div>
+      <div class="info-desc">{{staticSer.getCellarWine(ss.propertRecord.IntRoomInfo.CellarWineFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Exercise Room</div>
+      <div class="info-desc">{{staticSer.getExercise(ss.propertRecord.IntRoomInfo.ExcerciseFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Family Room</div>
+      <div class="info-desc">{{staticSer.getFamily(ss.propertRecord.IntRoomInfo.FamilyCode) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Game Room</div>
+      <div class="info-desc">{{staticSer.getGame(ss.propertRecord.IntRoomInfo.GameFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Great Room</div>
+      <div class="info-desc">{{staticSer.getGreat(ss.propertRecord.IntRoomInfo.GreatFlag) || '-'}}</div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="info-title">Hobby Room</div>
+      <div class="info-desc">{{staticSer.getHobby(ss.propertRecord.IntRoomInfo.HobbyFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Laundry Room</div>
+      <div class="info-desc">{{staticSer.getLaundry(ss.propertRecord.IntRoomInfo.LaundryFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Media Room</div>
+      <div class="info-desc">{{staticSer.getMedia(ss.propertRecord.IntRoomInfo.MediaFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Mud Room</div>
+      <div class="info-desc">{{staticSer.getMud(ss.propertRecord.IntRoomInfo.MudFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Office Area</div>
+      <div class="info-desc">{{ss.propertRecord.IntRoomInfo.OfficeArea || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Office</div>
+      <div class="info-desc">{{staticSer.getOffice(ss.propertRecord.IntRoomInfo.OfficeFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Safe Room</div>
+      <div class="info-desc">{{staticSer.getSafeRoom(ss.propertRecord.IntRoomInfo.SafeRoomFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Sitting Room</div>
+      <div class="info-desc">{{staticSer.getSitting(ss.propertRecord.IntRoomInfo.SittingFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Storm Shelter</div>
+      <div class="info-desc">{{staticSer.getStorm(ss.propertRecord.IntRoomInfo.StormShelter) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Study</div>
+      <div class="info-desc">{{staticSer.getStudy(ss.propertRecord.IntRoomInfo.StudyFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Sunroom</div>
+      <div class="info-desc">{{staticSer.getSunroom(ss.propertRecord.IntRoomInfo.SunroomFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Utility Area</div>
+      <div class="info-desc">{{ss.propertRecord.IntRoomInfo.UtilityArea || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Utility Room</div>
+      <div class="info-desc">{{staticSer.getUtility(ss.propertRecord.IntRoomInfo.UtilityCode) || '-'}}</div>
+    </div>
+  </div>
+</div>

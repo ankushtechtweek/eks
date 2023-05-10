@@ -1,0 +1,17 @@
+<div class="panel-heading text-uppercase">Pool</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">Pool</div>
+      <div class="info-desc">{{staticSer.getPool(ss.propertRecord.Pool.Pool) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Pool Area</div>
+      <div class="info-desc">{{ss.propertRecord.Pool.PoolArea || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Sauna</div>
+      <div class="info-desc">{{staticSer.getSauna(ss.propertRecord.Pool.SaunaFlag) || '-'}}</div>
+    </div>
+  </div>
+</div>

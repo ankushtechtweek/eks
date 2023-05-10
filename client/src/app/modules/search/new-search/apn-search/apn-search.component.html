@@ -1,0 +1,63 @@
+<form
+  [formGroup]="apnForm"
+  (ngSubmit)="onSubmit(apnForm)"
+>
+  <div class="d-flex align-items-center mb-20">
+    <div class="bar-text">Search</div>
+    <div class="col">
+      <label class="label-bar">Enter Assessor's Parcel Number (APN)</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Ex. 0024798230006"
+        name="apn"
+        formControlName="apn"
+        [ngClass]="{ 'is-invalid':f['apn'].touched && f['apn'].errors }"
+      >
+    </div>
+    <div class="map-form-group">
+      <label class="label-bar">State</label>
+      <div>
+        <select
+          class="map-form-select form-select"
+          formControlName="state"
+          (change)="onAPNStateChange($any($event.target)?.value)"
+          [ngClass]="{ 'is-invalid':f['state'].touched && f['state'].errors }"
+        >
+          <option
+            *ngFor="let state of APNStates"
+            [disabled]="state.disabled"
+            [value]="state.value"
+          >{{state.text}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="search-bar-container">
+      <label class="label-bar">County</label>
+      <div class="input-group">
+        <select
+          class="map-form-select form-select form-control"
+          formControlName="fipsCode"
+          name="fips"
+          [ngClass]="{ 'is-invalid':f['fipsCode'].touched && f['fipsCode'].errors }"
+        >
+          <option
+            *ngFor="let county of APNCounties"
+            [value]="county.value"
+          >{{county.text}}</option>
+        </select>
+        <span
+          class="input-group-text"
+          role="button"
+          (click)="onSubmit(apnForm)"
+        >
+          <img
+            src="assets/icons/icon_search-light.svg"
+            width="16"
+            alt=""
+          >
+        </span>
+      </div>
+    </div>
+  </div>
+</form>

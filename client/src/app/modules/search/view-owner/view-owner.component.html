@@ -1,0 +1,127 @@
+<div class="app-wrapper side-menu-space">
+  <div
+    class="container mt-3"
+    *ngIf="ss.isCurrentOwner"
+  >
+    <div class="card alert alert-info">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <h5>
+              <span class="card-title text-primary">{{propertyOwner.name | uppercase}}</span>
+              <span *ngIf="propertyOwner.age_range"> age: ~{{propertyOwner.age_range}}</span>
+            </h5>
+            <p class="card-text h6">Found {{uniqArray(propertyOwner.current_addresses).length}} addresses</p>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-12 mb-1">
+            <p class="card-text h5">Related to:</p>
+          </div>
+          <div class="col-md-12">
+            <ul class="list-group list-group-horizontal-sm">
+              <li
+                class="list-group-item"
+                *ngFor="let associated of propertyOwner.associated_people"
+              >{{associated.name}}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-12 mb-1">
+            <p class="card-text h5">Has lived in:</p>
+          </div>
+          <div class="col-md-12">
+            <ul class="list-group list-group-horizontal-sm">
+              <li
+                class="list-group-item"
+                *ngFor="let address of uniqArray(propertyOwner.current_addresses)"
+              >{{address.city}},{{address.state_code}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="card mb-2 alert alert-light"
+      *ngIf="propertyOwner.phones && propertyOwner.phones.length"
+    >
+      <div class="card-body">
+        <p class="h5"><u>Phone Numbers</u></p>
+        <ul class="list-group list-group-flush">
+          <li
+            class="list-group-item border-0 ps-0"
+            *ngFor="let phone of propertyOwner.phones"
+          >
+            <p class="h6">{{phone.phone_number}}({{phone.line_type}})
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="card mb-2 alert alert-light"
+      role="button"
+    >
+      <div class="card-body">
+        <p class="h5">Found at addresses - <span class="h6">(click on property address to view detailed property
+            report).</span>
+        </p>
+        <a
+          class="h6"
+          role="button"
+          (click)="createSearch(propertyOwner.found_at_address,propertyOwner.name)"
+        >{{propertyOwner.found_at_address.street_line_1}}, {{propertyOwner.found_at_address.city}},
+          {{propertyOwner.found_at_address.state_code}},
+          {{propertyOwner.found_at_address.postal_code}}-{{propertyOwner.found_at_address.zip4}}
+          {{propertyOwner.found_at_address.country_code}}
+        </a>
+      </div>
+    </div>
+    <div class="card mb-2 alert alert-light">
+      <div class="card-body">
+        <p class="h5">Current addresses - <span class="h6">(click on property address to view detailed property
+            report)</span></p>
+        <ul class="list-group list-group-flush">
+          <li
+            class="list-group-item border-0 ps-0"
+            *ngFor="let address of propertyOwner.current_addresses"
+          ><a
+              class="h6"
+              role="button"
+              (click)="createSearch(address,propertyOwner.name)"
+            >{{address.street_line_1}}, {{address.city}}, {{address.state_code}}
+              {{address.postal_code}}-{{address.zip4}} {{address.country_code}}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="card alert alert-light"
+      *ngIf="propertyOwner.historical_addresses.length"
+    >
+      <div class="card-body">
+        <p class="h5">Historical addresses - <span class="h6">(click on property address to view detailed property
+            report)</span></p>
+        <ul class="list-group list-group-flush">
+          <li
+            class="list-group-item border-0 ps-0"
+            *ngFor="let address of propertyOwner.historical_addresses"
+          ><a
+              class="h6"
+              role="button"
+              (click)="createSearch(address,propertyOwner.name)"
+            >{{address.street_line_1}}, {{address.city}}, {{address.state_code}}
+              {{address.postal_code}}-{{address.zip4}} {{address.country_code}}
+            </a>
+            <span class="h6">- Lived here between
+              {{address.link_to_person_start_date}} -
+              {{address.link_to_person_end_date}}
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

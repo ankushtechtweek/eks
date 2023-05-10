@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-7">
+      <div class="">
+        <div class="card-body">
+          <h3 class="card-title text-success text-center">CONGRATULATIONS!</h3>
+          <h5
+            class="card-subtitle mb-2 text-center mt-2 mb-3"
+            *ngIf="ss.isUnauthUser"
+          >
+            You have made the right decision to sign up to the {{ss.unauthUser.getValue().planName}}
+          </h5>
+          <div class="card">
+            <div class="card-header text-center">
+              Tell us a bit about yourself so we can recommend ways for you to get started.
+            </div>
+            <div class="card-body">
+              <form class="row g-3">
+                <div class="col-md-12">
+                  <label
+                    for="search-related"
+                    class="form-label"
+                  >{{questions[0]}}:</label>
+                  <select
+                    id="search-related"
+                    class="form-select"
+                    [(ngModel)]="model.related"
+                    name="related"
+                  >
+                    <option selected>Select</option>
+                    <option
+                      [value]="related"
+                      *ngFor="let related of searchRelateds"
+                    ><span>{{related}}</span></option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label
+                    for="research"
+                    class="form-label"
+                  >{{questions[1]}}</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="research"
+                    [(ngModel)]="model.research"
+                    name="research"
+                    placeholder="Please be as specific and detailed as possible"
+                  >
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="d-grid gap-2 col-md-4 mx-auto m-3">
+      <button
+        class="btn orange-btn btn-secondary"
+        type="button"
+        (click)="onSubmit()"
+      >Click HERE to Login & View Your Results</button>
+    </div>
+  </div>
+</div>

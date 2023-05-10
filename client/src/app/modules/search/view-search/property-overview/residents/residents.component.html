@@ -1,0 +1,29 @@
+<div class="property-section-header fw-bold">Residents</div>
+<div class="panel-heading text-uppercase">Resident Details</div>
+<div class="panel-body">
+  <div
+    class="row"
+    *ngFor="let resident of residents"
+  >
+    <div class="col-md-3">
+      <div class="info-title">Name</div>
+      <div
+        class="info-user"
+        role="button"
+        (click)="onSubmit(resident.name)"
+      >{{resident.name}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Gender</div>
+      <div class="info-desc fw-bold">{{resident.gender}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Age</div>
+      <div class="info-desc">{{resident.age_range}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Resident Since</div>
+      <div class="info-desc">{{resident.link_to_address_start_date ? resident.link_to_address_start_date : 'N/A'}}</div>
+    </div>
+  </div>
+</div>

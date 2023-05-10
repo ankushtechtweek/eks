@@ -1,0 +1,21 @@
+<div class="panel-heading text-uppercase">Tax Information</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">Year Assessed</div>
+      <div class="info-desc">{{ss.propertRecord.Tax.YearAssessed || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Assessed Value</div>
+      <div class="info-desc">{{(ss.propertRecord.Tax.AssessedValueTotal | currency) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Tax Amount</div>
+      <div class="info-desc">{{(ss.propertRecord.Tax.TaxBilledAmount | currency) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Property Use Group</div>
+      <div class="info-desc">{{ss.propertRecord.PropertyUseInfo.PropertyUseGroup || '-'}}</div>
+    </div>
+  </div>
+</div>

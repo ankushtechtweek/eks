@@ -1,0 +1,35 @@
+<div class="panel-heading text-uppercase">PROPERTY OWNERSHIP</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-5">
+      <div>
+        <div class="info-title">OWNER’S NAME(S)</div>
+        <div
+          class="info-user"
+          role="button"
+          (click)="onSubmit(ss.propertRecord.PrimaryOwner.Name1Full)"
+        >{{ss.propertRecord.PrimaryOwner.Name1Full}}</div>
+        <div
+          class="info-user"
+          role="button"
+          (click)="onSubmit(ss.propertRecord.PrimaryOwner.Name2Full)"
+        >{{ss.propertRecord.PrimaryOwner.Name2Full}}</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">OWNER’S MAILING ADDRESS</div>
+      <div
+        class="info-desc"
+        *ngIf="ss.propertRecord.OwnerAddress.Address"
+      >{{ss.propertRecord.OwnerAddress.Address}}, {{ss.propertRecord.OwnerAddress.City}},
+        {{ss.propertRecord.OwnerAddress.State}}, {{ss.propertRecord.OwnerAddress.Zip}}</div>
+    </div>
+    <div class="col-md-4">
+      <img
+        [src]="getGoogleImage(ss.propertyDetails.propertyAddressNavigation)"
+        class="img-responsive img-thumbnail"
+        alt=""
+      />
+    </div>
+  </div>
+</div>

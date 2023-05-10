@@ -1,0 +1,50 @@
+.error-message {
+  /* font-family: 'Europa-Regular'; */
+  color: #BF6868;
+  font-size: 11px;
+  line-height: 17px;
+}
+.form-floating-borderless input[type="text"],
+.form-floating-borderless input[type="email"],
+.form-floating-borderless input[type="number"],
+.form-floating-borderless input[type="date"] {
+  padding-left: 0px !important;
+  border-left: 0px !important;
+  border-top: 0px !important;
+  border-right: 0px !important;
+  border-radius: 0px !important;
+  padding-bottom: 0.2rem !important;
+  /* font-family: 'Europa-Regular'; */
+}
+.form-floating-borderless input[type="text"] + label,
+.form-floating-borderless input[type="email"] + label,
+.form-floating-borderless input[type="number"] + label,
+.form-floating-borderless input[type="date"] + label {
+  padding-left: 0px !important;
+  margin-left: -1px !important;
+  font-weight: 700;
+  /* font-family: 'Europa-Bold'; */
+}
+.form-floating-borderless input[type="text"]:focus,
+.form-floating-borderless input[type="email"]:focus,
+.form-floating-borderless input[type="number"]:focus,
+.form-floating-borderless input[type="date"]:focus {
+  box-shadow: none;
+}
+.form-floating>.form-control-plaintext~label, .form-floating>.form-control:focus~label, .form-floating>.form-control:not(:placeholder-shown)~label, .form-floating>.form-select~label {
+  opacity: 0.8;
+  -webkit-transform: scale(.85) translateY(-0.3rem) translateX(0rem);
+  transform: scale(.85) translateY(-0.3rem) translateX(0rem);
+  color: #002948;
+}
+@media (max-width: 767px) {
+  .error-message {
+      font-size: 13pt;
+  }
+  .forgot-mail a{
+      font-size: 13pt;
+  }
+  .login-form .forgot-mail-sucess {
+      font-size: 16px;
+  }
+}

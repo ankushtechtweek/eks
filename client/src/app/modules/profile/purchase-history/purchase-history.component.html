@@ -1,0 +1,29 @@
+<table
+  class="table table-striped"
+  aria-describedby="purchase-history"
+  *ngIf="subscriptions && subscriptions.length"
+>
+  <thead>
+    <tr>
+      <th scope="col">Date Paid</th>
+      <th scope="col">Amount Paid</th>
+      <th scope="col">Payment Method</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let subscription of subscriptions">
+      <td>{{subscription.created | unix}}</td>
+      <td><span class="badge bg-light text-dark">{{(subscription.amount / 100) | currency}}</span></td>
+      <td>Card ending in {{subscription.payment_method_details.card.last4 }}</td>
+      <td><a
+          class="text-decoration-none"
+          [href]="subscription.receipt_url"
+          target="_blank"
+          rel="noopener"
+        >Download</a></td>
+    </tr>
+  </tbody>
+</table>
+<ng-container *ngIf="noResultFound">
+</ng-container>

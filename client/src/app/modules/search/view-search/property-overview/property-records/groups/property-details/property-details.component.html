@@ -1,0 +1,45 @@
+<div class="panel-heading text-uppercase">PROPERTY DETAILS</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">FIPS Code</div>
+      <div class="info-desc">{{ss.propertRecord.Parcel.FIPSCode || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">APN</div>
+      <div class="info-desc">{{ss.propertRecord.Parcel.FormattedAPN || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Lot Size (Acres)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.AreaLotAcres || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Lot Size (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.AreaLotSF || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Year Built</div>
+      <div class="info-desc">{{ss.propertRecord.PropertyUseInfo.YearBuilt || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Living Area (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.AreaBuilding || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Bedrooms</div>
+      <div class="info-desc">{{ss.propertRecord.IntRoomInfo.BedroomsCount || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Bathrooms</div>
+      <div class="info-desc">{{ss.propertRecord.IntRoomInfo.BathCount || '-'}}</div>
+    </div>
+    <div class="col-md-9">
+      <div class="info-title">Legal Description</div>
+      <div class="info-desc">{{ss.propertRecord.Legal.LegalDescription || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">County</div>
+      <div class="info-desc">{{ss.propertRecord.Parcel.County|| '-'}}</div>
+    </div>
+  </div>
+</div>

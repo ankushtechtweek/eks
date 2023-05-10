@@ -1,0 +1,66 @@
+<div class="card">
+  <div class="card-header">
+    <h6 class="d-flex justify-content-between align-items-center mb-0">
+      <div>
+        Mortgage Image
+      </div>
+      <div class="d-flex">
+        <ng-container *ngIf="pdfURl">
+          <button
+            type="button"
+            class="btn btn-sm btn-danger d-none d-sm-block"
+            (click)="commonService.printPdf(pdfURl)"
+          >
+            <span class="btn-label"><em class="fa fa-print me-2"></em></span>Print</button>
+          <button
+            type="button"
+            class="btn btn-sm btn-primary"
+            (click)="commonService.savePdf(pdfURl,'Mortgage')"
+          >
+            <span class="btn-label"><em class="fa fa-save me-2"></em></span>Save</button>
+        </ng-container>
+        <ng-container *ngIf="currentUser.subscriptionType != PGConstant.PLAN_TYPE.TRIAL">
+          <button
+            type="button"
+            class="btn btn-sm orange-btn"
+            (click)="isPermitted ? commonService.purchaseCredits() : commonService.purchaseModal()"
+          >
+            <span class="btn-label"><em class="fa fa-shopping-cart me-2"></em></span>Purchase Credits</button>
+        </ng-container>
+        <ng-container *ngIf="ss.isLastFinanceDocument.getValue()">
+          <button
+            type="button"
+            class="btn btn-sm btn-success"
+            (click)="pdfURl ? warningAlert() : downloadReport()"
+          >
+            <span class="btn-label"><em class="fa fa-download me-2"></em></span>Download</button>
+        </ng-container>
+
+      </div>
+    </h6>
+  </div>
+  <div class="card-body">
+    <ng-container *ngIf="pdfURl; else noResult">
+      <app-pdf-viewer [pdfURl]="pdfURl"></app-pdf-viewer>
+    </ng-container>
+    <ng-container *ngIf="ss.isLastFinanceDocument.getValue() && !pdfURl">
+      <div
+        class="alert alert-success text-center fw-bold"
+        role="alert"
+      >
+        The Current Mortgage Image may be available for this property.<br>
+        (1 Credit Needed)
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!ss.isLastFinanceDocument.getValue()">
+      <div
+        class="alert alert-secondary text-center fw-bold"
+        role="alert"
+      >
+        No Mortgage data available.
+      </div>
+    </ng-container>
+    <ng-template #noResult>
+    </ng-template>
+  </div>
+</div>

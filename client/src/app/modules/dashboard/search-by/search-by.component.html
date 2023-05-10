@@ -1,0 +1,16 @@
+<div class="orderby-grid-container">
+  <ng-container *ngFor="let type of addressTypes">
+    <!-- hvr-bounce-in -->
+    <div class="orderby-grid-item" role="button" (click)="navigate(type.name)">
+      <div class="orderby-grid-box hvr-sweep-to-right">
+        <img
+          src="assets/icons/{{type.icon}}"
+          height="55px"
+          alt=""
+        />
+        <h4>{{type.name}} Search</h4>
+        <p class="h6">{{type.description}}</p>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,10 @@
+<ng-container *ngIf="ss.isPropertyRecord; else noResult">
+  <div class="property-section-header fw-bold">Property Records</div>
+  <app-property-ownership></app-property-ownership>
+  <app-property-details></app-property-details>
+  <app-last-sale></app-last-sale>
+  <app-tax-information></app-tax-information>
+  <app-estimated-property-value></app-estimated-property-value>
+</ng-container>
+<ng-template #noResult>
+</ng-template>

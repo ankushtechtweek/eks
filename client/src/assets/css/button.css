@@ -1,0 +1,74 @@
+.btn {
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none !important;
+}
+.btn ~ .btn {
+  margin-left: 10px;
+}
+.btn-primary:not(:disabled),
+.btn-primary:not(:disabled):hover {
+  background: #264B83 !important;
+  color: #fff;
+}
+.btn-info:not(:disabled),
+.btn-info:not(:disabled):hover {
+  background: #24AEF4 !important;
+  color: #fff;
+}
+.btn-with-icon,
+.btn-with-icon:not(:disabled):hover {
+  border-radius: 6px;
+  border-color: #D6D6D6 !important;
+  font-size: 12px;
+  color: #002948 !important;
+  font-weight: 400;
+}
+.btn-with-icon img {
+  margin-right: 3px;
+}
+.btn-filter {
+  background: #EFF9FF !important;
+  margin-left: 10px;
+}
+.btn-filter:hover {
+  background: #F5FAF7 !important;
+  color: #0F361D;
+}
+.btn-text-link {
+  background-color: transparent;
+  padding: 2px 3px;
+  line-height: 15px;
+  font-size: 14px;
+  color: #55B7FF;
+  border: none;
+  outline: 0;
+  text-decoration: underline;
+}
+.btn:disabled {
+  opacity: 0.8 !important;
+}
+.btn-flag {
+  opacity: .45;
+}
+
+.orange-btn {
+  background: #ff7256 !important;
+  color: #FFF !important;
+  border-color: #ff7256;
+}
+
+.orange-btn:hover,
+.orange-btn:active {
+  color: #FFF !important;
+  -webkit-box-shadow: 0 7px 14px 0 #f5821f78;
+  box-shadow: 0 7px 14px 0 #f5821f78;
+  border-color: #f8985c !important;
+  background: #ff7256 !important;
+}
+.sample-btn {
+  color: #349be9;
+  font-size: 16px;
+  font-weight: 500;
+}

@@ -1,0 +1,82 @@
+<div class="row justify-content-md-center">
+  <div class="col-md-12">
+    <div
+      class="alert alert-primary"
+      role="alert"
+    >
+      <h5 class="alert-heading">Current Plan</h5>
+      <p class="card-text h6">
+        {{currentUser.subscriptionType}}
+      </p>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div
+      class="alert alert-success"
+      role="alert"
+    >
+      <h5 class="alert-heading">Plan Usage</h5>
+      <p class="card-text h6">
+        {{currentUser.searchCount}} searches out of {{currentUser.totalSearchCount}}
+      </p>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div
+      class="alert alert-warning"
+      role="alert"
+    >
+      <h5 class="alert-heading">Date Added</h5>
+      <p class="card-text h6">
+        {{(currentUser.createdAt | date) || 'N/A'}}
+      </p>
+    </div>
+    <div
+      class="col-md-12"
+      *ngIf="!currentUser.paymentStatus"
+    >
+      <div
+        class="alert alert-danger"
+        role="alert"
+      >
+        <h5 class="alert-heading text-center">Your Property Scout Records account is currently inactive.</h5>
+        <p class="text-center">To activate your account, please choose a plan below.</p>
+        <hr>
+        <div class="d-grid gap-2 mt-3">
+          <button
+            [routerLink]="'/upgrade'"
+            class="btn btn-danger text-white fw-bold"
+            type="button"
+          > Choose a plan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="col-md-12"
+    *ngIf="currentUser.userCancellation"
+  >
+    <div
+      class="alert alert-danger alert-sm"
+      role="alert"
+    >
+      <h6 class="alert-heading text-center">Your account is scheduled to be canceled on
+        <strong>{{(currentUser.userCancellation | utcCurrent) | date:'longDate'}}</strong> at the end of
+        your current billing period - no further charges will apply.
+      </h6>
+    </div>
+  </div>
+  <div
+    class="col-md-6"
+    *ngIf="!(currentUser.is3DayPlan || currentUser.userCancellation)"
+  >
+    <div class="d-grid gap-2">
+      <button
+        class="btn btn-primary"
+        type="button"
+        (click)="cancelMembership()"
+      >Unsubscribe
+      </button>
+    </div>
+  </div>
+</div>

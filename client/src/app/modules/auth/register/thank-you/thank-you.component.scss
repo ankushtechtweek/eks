@@ -1,0 +1,14 @@
+.orange-btn {
+  background: #ff7256;
+  color: #fff !important;
+  border-color: #ff7256;
+}
+
+.orange-btn:hover,
+.orange-btn:active {
+  color: #fff !important;
+  -webkit-box-shadow: 0 7px 14px 0 #f5821f78;
+  box-shadow: 0 7px 14px 0 #f5821f78;
+  border-color: #f8985c !important;
+  background: #ff7256 !important;
+}

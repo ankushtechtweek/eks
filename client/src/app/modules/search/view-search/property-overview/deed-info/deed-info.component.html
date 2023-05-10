@@ -1,0 +1,12 @@
+<div class="property-section-header fw-bold">Deed Info</div>
+<ng-container *ngIf="ss.isHisTransactions; else noResult">
+  <app-document-information></app-document-information>
+  <app-transaction-information></app-transaction-information>
+  <app-primary-grantor></app-primary-grantor>
+  <app-secondary-grantor></app-secondary-grantor>
+  <app-primary-grantee></app-primary-grantee>
+  <app-secondary-grantee></app-secondary-grantee>
+  <app-title-company-info></app-title-company-info>
+</ng-container>
+<ng-template #noResult>
+</ng-template>

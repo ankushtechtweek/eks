@@ -1,0 +1,65 @@
+<div class="panel-heading text-uppercase">Yard Garden Information</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">Topography Code</div>
+      <div class="info-desc">{{staticSer.getTopographyCode(ss.propertRecord.YardGardenInfo.TopographyCode) || '-'}}
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Fence Code</div>
+      <div class="info-desc">{{staticSer.getFenceCode(ss.propertRecord.YardGardenInfo.FenceCode) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Fence Area</div>
+      <div class="info-desc">{{ss.propertRecord.YardGardenInfo.FenceArea || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Courtyard</div>
+      <div class="info-desc">{{staticSer.getCourtyard(ss.propertRecord.YardGardenInfo.CourtyardFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Courtyard Area</div>
+      <div class="info-desc">{{ss.propertRecord.YardGardenInfo.CourtyardArea || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Arbor Pergola</div>
+      <div class="info-desc">{{staticSer.getArborPergola(ss.propertRecord.YardGardenInfo.ArborPergolaFlag) || '-'}}
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Sprinklers</div>
+      <div class="info-desc">{{staticSer.getSprinklers(ss.propertRecord.YardGardenInfo.SprinklersFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Golf Course Green</div>
+      <div class="info-desc">{{staticSer.getGolfCourseGreen(ss.propertRecord.YardGardenInfo.GolfCourseGreenFlag) ||
+        '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Tennis Court</div>
+      <div class="info-desc">{{staticSer.getTennisCourt(ss.propertRecord.YardGardenInfo.TennisCourtFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Sports Court</div>
+      <div class="info-desc">{{staticSer.getSportsCourt(ss.propertRecord.YardGardenInfo.SportsCourtFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Arena</div>
+      <div class="info-desc">{{staticSer.getArena(ss.propertRecord.YardGardenInfo.ArenaFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Water Feature</div>
+      <div class="info-desc">{{staticSer.getWaterFeature(ss.propertRecord.YardGardenInfo.WaterFeatureFlag) || '-'}}
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Pond</div>
+      <div class="info-desc">{{staticSer.getPond(ss.propertRecord.YardGardenInfo.PondFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Boat Lift</div>
+      <div class="info-desc">{{staticSer.getBoatLift(ss.propertRecord.YardGardenInfo.BoatLiftFlag) || '-'}}</div>
+    </div>
+  </div>
+</div>

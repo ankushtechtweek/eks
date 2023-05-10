@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: deployment-{{ component }}
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ component }}
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ component }}
+    spec:
+      containers:
+        - image: {{ aws_account }}.dkr.ecr.{{ aws_region }}.amazonaws.com/{{ component }}:VERSION
+          imagePullPolicy: Always
+          name: {{ component }}
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 1
+              memory: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: default
+  name: service-{{ component }}
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: {{ component }}

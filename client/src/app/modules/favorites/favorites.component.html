@@ -1,0 +1,91 @@
+<div class="app-wrapper side-menu-space mt-2">
+  <div class="card">
+    <div class="card-header">
+      <h5 class="d-flex justify-content-between align-items-center mb-0">
+        <div>
+          <em class="fa fa-star-o"></em> Favorites
+        </div>
+      </h5>
+    </div>
+    <div class="card-body">
+      <div class="thumbnail-grid-container mb-20 pr-12">
+        <div class="row">
+          <ng-container *ngIf="searches.items && searches.items.length">
+            <div
+              *ngFor="let search of searches.items | paginate: { id: 'server', itemsPerPage:pager.itemsPerPage, currentPage: pager.currentPage, totalItems: searches.rowCount }"
+              class="col-md-3 thumbnail-grid-item hvr-grow"
+            >
+              <div
+                class="img-thumbnail"
+                (click)="navigateToSearch(search)"
+              >
+                <div class="grid-content-wrapper">
+                  <img
+                    [src]="getGoogleImage(search.propertyAddressNavigation)"
+                    class="img-fluid"
+                    alt="google-image"
+                    style="width:100%"
+                  >
+                  <div class="caption">
+                    <h5 class="thumb-heading">
+                      {{search.propertyAddressNavigation?.street}}
+                      {{search.propertyAddressNavigation?.city}},
+                      {{search.propertyAddressNavigation?.state?.abbreviation}},
+                      {{search.propertyAddressNavigation.state?.zipCode}}
+                    </h5>
+                    <p class="thumb-desc">Last Searched: {{search.createdDate | date: 'MM/dd/yyyy'}}</p>
+                  </div>
+                  <div class="grid-right-icon-wrapper">
+                    <label
+                      class="star-check"
+                      (click)="$event.stopPropagation()"
+                    >
+                      <input
+                        type="checkbox"
+                        [checked]="true"
+                        (change)="onStarCheckChange($any($event.target)?.checked,search?.psid)"
+                        hidden
+                      />
+                      <img
+                        class="inactive"
+                        src="assets/icons/icon_whishlist.svg"
+                        alt="icon_whishlist"
+                      />
+                      <img
+                        class="active"
+                        src="assets/icons/icon_whishlist_active.svg"
+                        alt="icon_whishlist"
+                      />
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="noResultFound">
+            <div
+              class="alert alert-secondary text-center fw-bold"
+              role="alert"
+            >
+              Select your favorite properties, so they display here. Next time you log in, will be
+              much easier to find them
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div
+        class="text-center mt-5"
+        *ngIf="searches.items && searches.items.length"
+      >
+        <div
+          class="spinner"
+          [ngClass]="{ 'hidden': !loadingIndicator }"
+        ></div>
+        <pagination-controls
+          (pageChange)="pageChangeEvent($event)"
+          id="server"
+        ></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,257 @@
+.plan-th {
+  color: rgb(14, 119, 197);
+}
+
+.update-plan-th {
+  text-align: center;
+  font-size: 25px !important;
+  font-weight: 600;
+}
+
+.ticked-true {
+  color: #3ab93a;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.ticked-false {
+  color: #b93a3a;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.simple-price {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.simple-price-2 {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.simple-price-3 {
+  opacity: 0.75;
+  font-weight: normal;
+  font-size: 0.8rem;
+}
+
+.feature-category {
+  font-weight: 600;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding-top: 2rem !important;
+  padding-bottom: 0.5rem !important;
+  color: #0e77c5;
+}
+
+.featureTableSection .table th {
+  border: none;
+  vertical-align: unset;
+}
+
+.featureTableSection .table tbody tr:first-child td {
+  border: none !important;
+}
+
+.featureTableSection .table tbody tr:first-child:hover {
+  background: none;
+}
+
+.featureTableSection .table tbody tr:last-child:hover {
+  background: none;
+}
+
+.featureTableSection .table tbody tr td:last-child:hover {
+  background: none;
+}
+
+.featureTableSection table.table tbody>tr>td:not(:first-child):not(:nth-child(2)):before {
+  background-color: #d0f0fd;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0 10px;
+  z-index: -1;
+}
+
+.featureTableSection table.table tbody>tr>td:not(:first-child):last-child:before {
+  background-color: #fde5d0 !important;
+  border-color: #ff7256 !important;
+  border-width: 4px !important;
+}
+
+.featureTableSection table.table tbody>tr>td {
+  position: relative;
+  z-index: 1;
+}
+
+.featureTableSection table.table tbody>tr:last-child>td:not(:first-child):not(:nth-child(2)):before {
+  border-bottom-right-radius: 14px;
+  border-bottom-left-radius: 14px;
+  border-top-width: 0 !important;
+}
+
+.featureTableSection table.table>tbody>tr:hover td:after {
+  display: block;
+}
+
+.featureTableSection table.table>tbody>tr td:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: hsla(0, 0%, 0%, 0.02);
+  display: none;
+  z-index: -1;
+}
+
+.purchase-now-table-link {
+  color: #ff7256;
+  padding-bottom: 0.14rem;
+  border-bottom: 2px solid #ff7256;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none !important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.purchase-now-table-link:hover {
+  color: #e87d67 !important;
+  cursor: pointer;
+}
+
+.orange-btn {
+  background: #ff7256;
+  color: #FFF !important;
+  border-color: #ff7256;
+}
+
+.orange-btn:hover,
+.orange-btn:active {
+  color: #FFF !important;
+  -webkit-box-shadow: 0 7px 14px 0 #f5821f78;
+  box-shadow: 0 7px 14px 0 #f5821f78;
+  border-color: #f8985c !important;
+  background: #ff7256 !important;
+}
+
+.user_plan h4 strong {
+  font-size: 45px;
+  display: block;
+  font-weight: 600;
+}
+
+.user_plan h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.user_plan:hover {
+  border: none !important;
+  transform: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.user_plan {
+  border: none !important;
+  border-radius: 0px !important;
+  padding: 11px !important;
+  overflow: hidden !important;
+  background: #ffffff;
+  transition: 0.3s all ease !important;
+}
+
+.i-price {
+  opacity: .75;
+  line-height: 1.5;
+  font-weight: normal;
+  font-size: .9rem;
+  display: block;
+}
+
+.num-spacing {
+  letter-spacing: 2px;
+}
+
+.lg-sup {
+  font-size: 18px !important;
+  top: -1.3em !important;
+}
+
+.dollar-sm {
+  font-size: 27px;
+  position: relative;
+  top: -8px;
+}
+
+.purchase-btn-top {
+  position: absolute;
+  width: 100%;
+  top: -17px;
+  left: 0px;
+}
+
+.text-primary{
+  color: #23ABF0 !important;
+}
+
+.PlanInfoBorderBasic .PlanFooterBorderBasic .PlanHeaderBorderBasic {
+  background-color: white;
+}
+.PlanHeaderBorder:before {
+  border-color: #2a87cc;
+  border-left: 4px #2a87cc solid !important;
+  border-right: 4px #2a87cc solid !important;
+  border-top: 4px #2a87cc solid !important;
+}
+
+.PlanInfoBorder:before {
+  border-color: #2a87cc;
+  border-left: 4px #2a87cc solid !important;
+  border-right: 4px #2a87cc solid !important;
+}
+.PlanFooterBorder:before {
+  border-color: #2a87cc;
+  border-left: 4px #2a87cc solid !important;
+  border-right: 4px #2a87cc solid !important;
+  border-bottom: 4px #2a87cc solid !important;
+}
+
+.vwo_pricingSec:not(.price2) td:before {
+  border-top-right-radius: 14px;
+  border-top-left-radius: 14px;
+}
+
+.orange-table tbody{
+  background: #fde5d0;
+  border: 2px solid #ff7256;
+}
+.orange-table{border-collapse: unset;}
+.orange-table tr:first-child td{border-top-left-radius: 14px; border-top-right-radius: 14px;}
+.orange-table tr:last-child td{border-bottom-left-radius: 14px; border-bottom-right-radius: 14px;}
+
+@media (min-width: 576px) {
+  .simple-price-2 {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .user_plan p {
+    margin: 0;
+  }
+}

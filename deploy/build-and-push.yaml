@@ -1,0 +1,38 @@
+---
+- name: Build and push Docker image to AWS ECR
+  hosts: "{{ hosts }}"
+  gather_facts: no
+
+  vars:
+    image_name: ui
+    ecr_repository: "{{ aws_account }}.dkr.ecr.{{ aws_region }}.amazonaws.com/{{ image_name }}"
+    aws_region: us-east-2
+    # aws_profile: my-aws-profile
+  var_files:
+    - vars/common.yaml
+
+  tasks:
+    - name: Load Environment Variables
+      include_vars: "vars/{{ env }}.yaml"
+
+    - name: Build Docker image
+      docker_image:
+        name: "{{ image_name }}"        
+        tag: "{{ lookup('pipe', 'date +%Y-%m-%d@$H:%M:%S') }}"
+        source: .
+      register: docker_build
+
+    - name: Authenticate with AWS ECR
+      become: true
+      command: $(aws ecr get-login --no-include-email --region {{ aws_region }}) 
+
+    - name: Tag Docker image
+      docker_image:
+        name: "{{ image_name }}:{{ docker_build.tag }}"
+        repository: "{{ ecr_repository }}"
+        state: present
+
+    - name: Push Docker image to ECR
+      docker_image_push:
+        name: "{{ image_name }}:{{ docker_build.tag }}"
+        repository: "{{ ecr_repository }}"

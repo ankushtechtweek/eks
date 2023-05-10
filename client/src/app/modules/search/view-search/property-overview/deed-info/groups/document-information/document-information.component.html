@@ -1,0 +1,35 @@
+<div class="panel-heading text-uppercase">Document Information</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">Deed Type</div>
+      <div
+        class="info-desc"
+        *ngIf="!ss.noHistoricalData.getValue();else noResult"
+      >{{staticSer.getDeedType(ss.hisTransactions.Records[0].DocInfo.TypeCode) || '-'}}</div>
+      <ng-template #noResult>
+        <div class="info-desc">-</div>
+      </ng-template>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Instrument</div>
+      <div class="info-desc">{{ss.hisTransactions.Records[0].DocInfo.InstrumentNumber || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Book</div>
+      <div class="info-desc">{{ss.hisTransactions.Records[0].DocInfo.Book || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Page</div>
+      <div class="info-desc">{{ss.hisTransactions.Records[0].DocInfo.Page || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Instrument Date</div>
+      <div class="info-desc">{{(ss.hisTransactions.Records[0].DocInfo.InstrumentDate | psDate) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Recording Date</div>
+      <div class="info-desc">{{(ss.hisTransactions.Records[0].DocInfo.RecordingDate | psDate) || '-'}}</div>
+    </div>
+  </div>
+</div>

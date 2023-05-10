@@ -1,0 +1,24 @@
+<div
+  class="card text-white mb-3 col-md-12"
+  style="background-color:#00355C"
+>
+  <div class="card-body p-2">
+    <h5 class="card-title text-center">Get Instant Information on
+      <ng-container *ngIf="address.address">
+        <span class="highlight-text">
+          <mark class="border rounded">{{address?.address}}, {{address?.city}}, {{address?.state}} {{address?.zip}}</mark>
+        </span>
+      </ng-container>
+      <ng-container *ngIf="apn.APNcode">
+        APN:{{apn?.APNcode}} {{getAPNCounty(apn.FIPSCode)}}, {{getAPNState(apn.StateCode)}}
+      </ng-container>
+      <ng-container *ngIf="!(address.address || apn.APNcode)">
+        over 140,000,000 Properties in the U.S.
+      </ng-container>
+    </h5>
+    <p
+      class="card-text text-center"
+      style="color: #B4D96D"
+    >Your search is confidential. The owner of this property will NOT be notified of your search.</p>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="app-wrapper side-menu-space">
+  <div class="container mt-3">
+    <div class="row mb-3">
+      <p class="h4">People Search Results</p>
+      <p class="h6">Top results for <strong>{{model.name | titlecase}}</strong> in <strong>{{model.city |
+          titlecase}}</strong></p>
+    </div>
+    <ng-container *ngIf="persons && persons.length">
+      <div
+        class="card alert alert-light"
+        *ngFor="let person of persons"
+      >
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5>
+                <span class="card-title text-info">{{person.name | uppercase}}</span>
+                <span *ngIf="person.age_range"> | age: ~{{person.age_range}}</span>
+              </h5>
+              <p class="card-text h6">Found {{uniqArray(person.current_addresses).length}} addresses</p>
+            </div>
+            <div class="col-auto text-end">
+              <a
+                href="javascript:;"
+                (click)="viewProfile(person)"
+                class="btn btn-success float-right btn-sm"
+              >Full Profile</a>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-12 mb-1">
+              <p class="card-text h5">Related to:</p>
+            </div>
+            <div class="col-md-12">
+              <ul class="list-group list-group-horizontal-sm">
+                <li
+                  class="list-group-item"
+                  *ngFor="let associated of person.associated_people"
+                >{{associated.name}}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-12 mb-1">
+              <p class="card-text h5">Has lived in:</p>
+            </div>
+            <div class="col-md-12">
+              <ul class="list-group list-group-horizontal-sm">
+                <li
+                  class="list-group-item"
+                  *ngFor="let address of uniqArray(person.current_addresses)"
+                >{{address.city}},{{address.state_code}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="noResultFound">
+      <div class="row mb-3 alert alert-secondary text-center">
+        <p class="h4">No results found for your search.</p>
+        <a
+          class="text-blue"
+          role="button"
+          routerLink="/search/new-search/people"
+        >try searching another owner.</a>
+      </div>
+    </ng-container>
+  </div>
+</div>

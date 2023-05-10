@@ -1,0 +1,32 @@
+<div class="panel-heading text-uppercase">Utilities</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">HVAC Cooling Detail</div>
+      <div class="info-desc">{{staticSer.getHVACCoolingDetail(ss.propertRecord.Utilities.HVACCoolingDetail) || '-'}}
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">HVAC Heating Detail</div>
+      <div class="info-desc">{{staticSer.getHVACHeatingDetail(ss.propertRecord.Utilities.HVACHeatingDetail) || '-'}}
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">HVAC Heating Fuel</div>
+      <div class="info-desc">{{staticSer.getHVACHeatingFuel(ss.propertRecord.Utilities.HVACHeatingFuel) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Sewage Usage</div>
+      <div class="info-desc">{{staticSer.getSewageUsage(ss.propertRecord.Utilities.SewageUsage) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Water Source</div>
+      <div class="info-desc">{{staticSer.getWaterSource(ss.propertRecord.Utilities.WaterSource) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Mobile Home Hookup</div>
+      <div class="info-desc">{{staticSer.getMobileHomeHookup(ss.propertRecord.Utilities.MobileHomeHookupFlag) || '-'}}
+      </div>
+    </div>
+  </div>
+</div>

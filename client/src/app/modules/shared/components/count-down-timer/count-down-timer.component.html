@@ -1,0 +1,18 @@
+<div class="count-down-timer">
+  <div
+    class="row justify-content-md-center mt-1"
+    *ngIf="!expired"
+  >
+    <div class="col-auto h5 fw-bold">Days <span class="badge bg-secondary"> {{timer.days}}</span>
+    </div>
+    <div class="col-auto h5 fw-bold">Hours <span class="badge bg-secondary"> {{timer.hours}}</span>
+    </div>
+    <div class="col-auto h5 fw-bold">Mins <span class="badge bg-secondary">{{timer.minutes}}</span>
+    </div>
+    <div class="col-auto h5 fw-bold">Secs <span class="badge bg-secondary"> {{timer.seconds}}</span>
+    </div>
+  </div>
+  <ng-container *ngIf="expired">
+    <p class="text-center h4 fw-bold text-danger">Expired</p>
+  </ng-container>
+</div>

@@ -1,0 +1,16 @@
+<div class="property-section-header fw-bold">Structure Details</div>
+<ng-container *ngIf="ss.isPropertyRecord; else noResult">
+  <app-property-size></app-property-size>
+  <app-pool></app-pool>
+  <app-internal-structure-information></app-internal-structure-information>
+  <app-internal-room-information></app-internal-room-information>
+  <app-internal-amenities></app-internal-amenities>
+  <app-external-structure-information></app-external-structure-information>
+  <app-external-amenities></app-external-amenities>
+  <app-external-buildings></app-external-buildings>
+  <app-utilities></app-utilities>
+  <app-parking></app-parking>
+  <app-yard-garden-information></app-yard-garden-information>
+</ng-container>
+<ng-template #noResult>
+</ng-template>

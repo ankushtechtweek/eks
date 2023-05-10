@@ -1,0 +1,46 @@
+<div class="d-flex align-items-center mb-20">
+  <div class="bar-text">Search</div>
+  <div class="search-bar-container">
+    <label class="label-bar">Enter Address</label>
+    <div class="input-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search for Address"
+        name="search_grid"
+        [(ngModel)]="modal.searchText"
+        [ngbTypeahead]="search"
+        [resultFormatter]="resultFormatBandListValue"
+        [inputFormatter]="inputFormatBandListValue"
+        (input)="isSearchText($any($event.target)?.value)"
+        (selectItem)="selectedItem($event)"
+      >
+    </div>
+    <ng-container *ngIf="suiteList && suiteList.length">
+      <div class="input-group mt-2">
+        <select
+          class="map-form-select form-select form-control"
+          name="suiteList"
+          (change)="selectedSuit($any($event.target)?.value)"
+        >
+          <option selected>Condominium Association/Building Owner</option>
+          <option
+            *ngFor="let suite of suiteList"
+            [value]="suite"
+          >{{suite}}</option>
+        </select>
+        <span
+          class="input-group-text"
+          role="button"
+          (click)="createSearch()"
+        >
+          <img
+            src="assets/icons/icon_search-light.svg"
+            width="16"
+            alt=""
+          >
+        </span>
+      </div>
+    </ng-container>
+  </div>
+</div>

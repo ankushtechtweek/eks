@@ -1,0 +1,25 @@
+<div class="panel-heading text-uppercase">Estimated Property Value</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">Estimated Value</div>
+      <div class="info-desc">{{(ss.propertRecord.EstimatedValue.EstimatedValue | currency) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Estimated Min Value</div>
+      <div class="info-desc">{{(ss.propertRecord.EstimatedValue.EstimatedMinValue | currency) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Estimated Max Value</div>
+      <div class="info-desc">{{(ss.propertRecord.EstimatedValue.EstimatedMaxValue | currency) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Valuation Date</div>
+      <div class="info-desc">{{(ss.propertRecord.EstimatedValue.ValuationDate | psDate) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Confidence Score</div>
+      <div class="info-desc">{{ss.propertRecord.EstimatedValue.ConfidenceScore || '-'}}</div>
+    </div>
+  </div>
+</div>

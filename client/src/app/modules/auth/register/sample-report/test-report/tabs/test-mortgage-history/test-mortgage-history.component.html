@@ -1,0 +1,17 @@
+<div class="property-details-sections panel">
+  <div class="property-section-header fw-bold">Mortgage History</div>
+  <ng-container *ngFor="let field of fields  | keyvalue:staticService.indexOrderAsc">
+    <div class="panel-heading text-uppercase">{{field.key}}</div>
+    <div class="panel-body">
+      <div class="row">
+        <div
+          class="col-md-3"
+          *ngFor="let key of field.value"
+        >
+          <div class="info-title">{{key}}</div>
+          <div class="info-desc sub-text">Lorem ipsum</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

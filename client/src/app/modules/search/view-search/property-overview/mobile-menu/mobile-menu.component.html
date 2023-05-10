@@ -1,0 +1,29 @@
+<div class="d-block d-sm-none" [ngClass]="{'menu--opened': ss.toggleSearchMenu.value}">
+  <aside class="sidebar-navigation" #tabsScroll>
+    <div class="mobile-menu-text">
+      <div class="text-menu">PROPERTY OVERVIEW</div>
+      <button
+        id="closeMenu"
+        class="close"
+        (click)="ss.toggleSearchMenu.next(false)"
+      >&times;</button>
+    </div>
+    <ul class="side-menus">
+      <li
+        *ngFor="let report of searchTabs"
+        [routerLink]="report.route"
+        routerLinkActive="active"
+        (click)="ss.toggleSearchMenu.next(false)"
+      >
+        <a>
+          <img
+            width="35"
+            [src]="report.icon"
+            [alt]="report.tab"
+          />
+          <div class="fw-bold">{{report.tab}}</div>
+        </a>
+      </li>
+    </ul>
+  </aside>
+</div>

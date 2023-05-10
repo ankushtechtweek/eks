@@ -1,0 +1,364 @@
+<ng-container *ngIf="subscriptions && subscriptions.length">
+  <app-subscription-header></app-subscription-header>
+  <app-sample-report></app-sample-report>
+  <div class="container mt-4">
+    <div class="row justify-content-md-center d-block d-sm-none">
+      <div class="col-md-auto text-center align-top">
+        <app-toggle-switch (subscriptionType)="subType = $event"></app-toggle-switch>
+      </div>
+      <div class="col-md-auto text-center align-top">
+        <ng-container *ngIf="subType === 'yearly'">
+          <span class="badge orange-btn mt-1">2 Months Free</span>
+        </ng-container>
+      </div>
+    </div>
+    <div class="featureTableSection pale-white">
+      <table
+        style="font-size:15px"
+        class="table table-responsive d-none d-sm-block"
+        aria-describedby="Subscription"
+      >
+        <thead>
+          <tr>
+            <th
+              scope="col"
+              class="plan-th simple-price"
+              style="width: 33.33333%; vertical-align: middle;"
+            >Simple Pricing
+            </th>
+            <ng-container *ngFor="let plan of getSubScriptionByType">
+              <th
+                (click)="planselected = plan.plan_name"
+                scope="col"
+                class="text-center plan-th"
+                style="width: 16.66667%;"
+              >
+                <p class="simple-price-2 mb-2">{{ (plan.planName === '3 day plan' ? '3 DAY PASS' :
+                  plan.planName | uppercase)}}</p>
+                <p
+                  class="text-center simple-price-3 f-12"
+                  [innerHTML]="plan.description"
+                ></p>
+              </th>
+            </ng-container>
+          </tr>
+        </thead>
+        <tbody class="font-weight-500">
+          <tr class="vwo_pricingSec price1">
+            <td>
+              <div class="row d-none d-sm-block">
+                <hr />
+                <div class="col-md-auto align-top">
+                  <app-toggle-switch (subscriptionType)="subType = $event"></app-toggle-switch>
+                  <ng-container *ngIf="subType === 'yearly'">
+                    <span class="badge orange-btn position-absolute mt-1 ms-2">2 Months Free</span>
+                  </ng-container>
+                </div>
+              </div>
+            </td>
+            <td
+              *ngFor="let plan of getSubScriptionByType"
+              [ngClass]="planselected === plan.plan_name ? 'PlanHeaderBorder' : 'PlanHeaderBorderBasic'"
+            >
+              <div
+                class="user_plan text-center"
+                style="background: transparent; min-width: 177px"
+              >
+                <ng-template *ngTemplateOutlet="priceTitle; context: {$implicit: plan}"></ng-template>
+                <p
+                  class="best-for-txt mb-0"
+                  [innerHTML]="plan.plan_best_for_text"
+                ></p>
+              </div>
+              <div class="text-center purchase-btn-top">
+                <button
+                  class="btn orange-btn btn-secondary"
+                  (click)="purchaseNow(plan)"
+                >Purchase Now</button>
+              </div>
+            </td>
+          </tr>
+          <ng-container *ngFor="let feature of features; let findex=index">
+            <ng-container *ngIf="feature.description && feature.description.length; else someResult">
+              <tr>
+                <td>
+                  {{feature.name}}
+                </td>
+                <ng-container *ngFor="let plan of getSubScriptionByType">
+                  <td
+                    class="text-center"
+                    [ngClass]="planselected === plan.plan_name ? 'PlanInfoBorder' : 'PlanInfoBorderBasic'"
+                    [ngSwitch]="plan.features[findex].value && plan.features[findex].value.toString().toLowerCase().trim()"
+                  >
+                    <i
+                      *ngSwitchCase="'yes'"
+                      class="fa fa-check-circle text-primary fa-lg"
+                      aria-hidden="true"
+                    ></i>
+                    <i
+                      *ngSwitchCase="'no'"
+                      class="fa fa-times-circle text-danger fa-lg"
+                      aria-hidden="true"
+                    ></i>
+                    <span
+                      *ngSwitchDefault
+                      class="p-2"
+                    >{{plan.features[findex].value }}</span>
+                  </td>
+                </ng-container>
+              </tr>
+              <ng-container *ngFor="let desc of feature.description; let descIndex=index">
+                <tr>
+                  <td>
+                    <span>&nbsp;&nbsp;&#9679;&nbsp;</span>
+                    {{desc.name}}
+                  </td>
+                  <ng-container *ngFor="let plan of getSubScriptionByType">
+                    <td
+                      class="text-center"
+                      [ngClass]="planselected === plan.plan_name ? 'PlanInfoBorder' : 'PlanInfoBorderBasic'"
+                      [ngSwitch]="plan.features[findex]['description'][descIndex]?.value.toString().toLowerCase().trim()"
+                    >
+                      <i
+                        *ngSwitchCase="'yes'"
+                        class="fa fa-check-circle text-primary fa-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <i
+                        *ngSwitchCase="'no'"
+                        class="fa fa-times-circle text-danger fa-lg"
+                        aria-hidden="true"
+                      ></i>
+                      <span
+                        class="p-2"
+                        *ngSwitchDefault
+                      >{{ plan.features[findex]['description'][descIndex]?.value }}</span>
+                    </td>
+                  </ng-container>
+                </tr>
+              </ng-container>
+            </ng-container>
+            <ng-template #someResult>
+              <tr>
+                <td>
+                  {{feature.name}}
+                </td>
+                <ng-container *ngFor="let plan of getSubScriptionByType">
+                  <td
+                    class="text-center"
+                    [ngClass]="planselected === plan.plan_name ? 'PlanInfoBorder' : 'PlanInfoBorderBasic'"
+                    [ngSwitch]="plan.features[findex].value.toString().toLowerCase().trim()"
+                  >
+                    <i
+                      *ngSwitchCase="'yes'"
+                      class="fa fa-check-circle text-primary fa-lg"
+                      aria-hidden="true"
+                    ></i>
+                    <i
+                      *ngSwitchCase="'no'"
+                      class="fa fa-times-circle text-danger fa-lg"
+                      aria-hidden="true"
+                    ></i>
+                    <span
+                      class="p-2"
+                      *ngSwitchDefault
+                    >{{ plan.features[findex].value }}</span>
+                  </td>
+                </ng-container>
+              </tr>
+            </ng-template>
+          </ng-container>
+          <tr>
+            <td></td>
+            <td
+              *ngFor="let plan of getSubScriptionByType"
+              class="text-center PlanFooterBorder"
+              [ngClass]="planselected === plan.plan_name ? 'PlanFooterBorder' : 'PlanFooterBorderBasic'"
+            >
+              <button
+                class="btn orange-btn btn-secondary"
+                (click)="purchaseNow(plan)"
+              >Purchase Now</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div
+        *ngFor="let plan of getSubScriptionByType"
+        class="d-block d-sm-none"
+      >
+        <table
+          class="table orange-table"
+          aria-describedby="Subscription"
+        >
+          <thead>
+            <tr>
+              <th
+                class="text-center plan-th"
+                colspan="2"
+              >
+                <strong
+                  class="simple-price-2"
+                  style="margin-top: -80px;"
+                >{{ plan.planName === '3 day plan' ? '3 day pass' :
+                  plan.planName}}</strong>
+                <p
+                  class="text-center simple-price-3"
+                  [innerHTML]="plan.description"
+                ></p>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="font-weight-500">
+            <tr class="vwo_pricingSec price1">
+              <td colspan="2">
+                <div
+                  class="user_plan text-center"
+                  style="background: transparent; min-width: 177px"
+                >
+                <ng-template *ngTemplateOutlet="priceTitle; context: {$implicit: plan}"></ng-template>
+                  <p
+                    class="best-for-txt mb-0"
+                    [innerHTML]="plan.plan_best_for_text"
+                  ></p>
+                </div>
+                <div class="text-center purchase-btn-top">
+                  <button
+                    class="btn orange-btn btn-secondary"
+                    (click)="purchaseNow(plan)"
+                  >Purchase Now</button>
+                </div>
+              </td>
+            </tr>
+            <ng-container *ngFor="let feature of features; let findex=index">
+              <ng-container *ngIf="feature.description && feature.description.length;else noDesc">
+                <tr>
+                  <td>
+                    {{feature.name}}
+                  </td>
+                  <td
+                    class="text-center"
+                    [ngClass]="planselected === plan.plan_name ? 'PlanHeaderBorder' : 'PlanHeaderBorderBasic'"
+                    [ngSwitch]="plan.features[findex].value.toString().toLowerCase().trim()"
+                  >
+                    <span
+                      class="ticked-true"
+                      *ngSwitchCase="'yes'"
+                    >&#10004;</span>
+                    <span
+                      class="ticked-false"
+                      *ngSwitchCase="'no'"
+                    >&#10006;</span>
+                    <span *ngSwitchDefault>{{ plan.features[findex].value }}</span>
+                  </td>
+                </tr>
+                <ng-container *ngFor="let desc of feature.description; let descIndex=index">
+                  <tr>
+                    <td>
+                      <span *ngIf="feature.description && feature.description.length">&nbsp;&nbsp;&#9679;&nbsp;</span>
+                      {{desc.name}}
+                    </td>
+                    <td
+                      class="text-center"
+                      [ngClass]="planselected === plan.plan_name ? 'PlanHeaderBorder' : 'PlanHeaderBorderBasic'"
+                      [ngSwitch]="plan.features[findex]['description'][descIndex].value.toString().toLowerCase().trim()"
+                    >
+                      <span
+                        class="ticked-true"
+                        *ngSwitchCase="'yes'"
+                      >&#10004;</span>
+                      <span
+                        class="ticked-false"
+                        *ngSwitchCase="'no'"
+                      >&#10006;</span>
+                      <span *ngSwitchDefault>{{ plan.features[findex]['description'][descIndex]?.value }}</span>
+                    </td>
+                  </tr>
+                </ng-container>
+              </ng-container>
+              <ng-template #noDesc>
+                <tr>
+                  <td>
+                    <span *ngIf="feature.description && feature.description.length">&nbsp;&nbsp;&#9679;&nbsp;</span>
+                    {{ feature.name }}
+                  </td>
+                  <td
+                    class="text-center"
+                    [ngClass]="planselected === plan.plan_name ? 'PlanHeaderBorder' : 'PlanHeaderBorderBasic'"
+                    [ngSwitch]="plan.features[findex].value.toString().toLowerCase().trim()"
+                  >
+                    <span
+                      class="ticked-true"
+                      *ngSwitchCase="'yes'"
+                    >&#10004;</span>
+                    <span
+                      class="ticked-false"
+                      *ngSwitchCase="'no'"
+                    >&#10006;</span>
+                    <span *ngSwitchDefault>{{ plan.features[findex].value }}</span>
+                  </td>
+                </tr>
+              </ng-template>
+            </ng-container>
+            <tr>
+              <td
+                colspan="2"
+                class="text-center PlanFooterBorder"
+              >
+                <button
+                  class="btn orange-btn btn-secondary"
+                  (click)="purchaseNow(plan)"
+                >Purchase Now</button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <app-subscription-footer></app-subscription-footer>
+</ng-container>
+
+<ng-template
+  #priceTitle
+  let-plan
+>
+  <h4>
+    <span>
+      <ng-template *ngTemplateOutlet="pricing; context: {$implicit: plan}"></ng-template>
+      <ng-template *ngTemplateOutlet="priceDesc; context: {$implicit: plan}"></ng-template>
+    </span>
+  </h4>
+</ng-template>
+
+<ng-template
+  #pricing
+  let-plan
+>
+  <strong class="num-spacing">
+    <span class="dollar-sm">$</span>{{ filteredAmount(plan.amount,plan.planName).dollars }}<sup
+      *ngIf="filteredAmount(plan.amount,plan.planName).cents"
+      class="lg-sup"
+    >.{{
+      filteredAmount(plan.amount,plan.planName).cents }}</sup>
+  </strong>
+</ng-template>
+
+<ng-template
+  #priceDesc
+  let-plan
+>
+  <span *ngIf="plan.planName === PGConstant.PLAN_TYPE.THREE_DAY">
+    <em class="i-price">{{PGConstant.FREQUENCY[plan.sub_ID]}}</em>
+  </span>
+  <span *ngIf="plan.planName === 'Premium plan' || plan.planName === 'Pro250 plan'">
+    <em class="i-price">{{PGConstant.FREQUENCY[plan.sub_ID]}} fee of <span class="num-spacing">${{
+        amount(plan.amount).dollars }}<sup *ngIf="amount(plan.amount).cents">.{{
+          amount(plan.amount).cents}}</sup></span></em>
+  </span>
+  <span *ngIf="plan.planName === 'Pro Annual Plan' || plan.planName === 'Premium Annual Plan'">
+    <em class="i-price">Per month (Billed Annually)</em>
+  </span>
+</ng-template>

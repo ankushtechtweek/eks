@@ -1,0 +1,63 @@
+<div class="enhancemnt-group">
+  <div class="panel panel-default">
+    <h3 class="panel-title fw-bold">Enhancement Docs, Reports & Images Downloads</h3>
+    <p class="h6 text-center">Additional reports and documents may be available for a more thorough research</p>
+    <ul class="list-group">
+      <ng-container *ngFor="let report of reportNavs">
+        <ng-container *ngIf="isAvailble(report.route); else grayCards">
+          <li
+            class="list-group-item"
+            [ngClass]="{'border border-success border-4': report.selected}"
+          >
+            <article class="info-box">
+              <h3 class="fw-bold">{{report.tab}}</h3>
+              <p class="h6">{{report.desc}}</p>
+            </article>
+            <div class="info-box">
+              <div class="credit-text fw-bold">{{report.credits}}</div>
+            </div>
+            <div class="info-box">
+              <button
+                class="btn select-btn"
+                [ngClass]="{'btn-success text-light': report.selected}"
+                (click)="report.selected = !report.selected"
+              >
+                <span class="btn-label"><em
+                    class="fa fa-check me-2"
+                    *ngIf="report.selected"
+                  ></em></span>{{report.selected ? 'Selected' : 'Select'}}
+              </button>
+            </div>
+          </li>
+        </ng-container>
+        <ng-template #grayCards>
+          <li class="list-group-item">
+            <article class="info-box">
+              <div
+                class="alert alert-secondary mb-0 text-center fw-bold"
+                role="alert"
+              >
+                No {{report.name}} data available
+              </div>
+            </article>
+          </li>
+        </ng-template>
+      </ng-container>
+    </ul>
+    <div class="container">
+      <div class="row justify-content-md-end">
+        <div
+          class="col col-lg-3 mt-3 d-grid"
+          *ngIf="isReportsSelected"
+        >
+          <button
+            class="btn btn-success"
+            (click)="downloadConfirmation()"
+          >
+            <span class="btn-label"><em class="fa fa-download me-2"></em></span>Download
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

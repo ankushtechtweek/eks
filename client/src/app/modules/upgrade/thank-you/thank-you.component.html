@@ -1,0 +1,36 @@
+<div class="app-wrapper side-menu-space mt-3">
+  <div class="container">
+    <div class="card">
+      <div class="card-body">
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-10">
+            <div class="">
+              <div class="card-body">
+                <h3 class="card-title text-success text-center">CONGRATULATIONS!</h3>
+                <h5 class="card-subtitle mb-2 text-center mt-4 mb-3 fw-normal">
+                  Thank you for your order.
+                </h5>
+                <h5 class="card-subtitle mb-2 text-center mt-2 mb-3 fw-normal">
+                  You have now unlocked full access and the ability to do more searches per
+                  {{staticService.planMode(planName)}}!
+                </h5>
+                <h5 class="card-subtitle mb-2 text-center mt-2 mb-3 fw-normal" *ngIf="planName">
+                  You have made the right decision to upgrade to the <strong>{{planName.split('-').join(' ')}}</strong>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="d-grid gap-2 col-md-2 mx-auto m-3">
+            <button
+              class="btn orange-btn btn-secondary"
+              type="button"
+              [routerLink]="['dashboard']"
+            >Click HERE to proceed</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

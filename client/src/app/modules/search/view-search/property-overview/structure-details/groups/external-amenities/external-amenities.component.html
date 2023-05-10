@@ -1,0 +1,43 @@
+<div class="panel-heading text-uppercase">External Amenities</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">View Description</div>
+      <div class="info-desc">{{staticSer.getViewDescription(ss.propertRecord.ExtAmenities.ViewDescription) || '-'}}
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Porch Code</div>
+      <div class="info-desc">{{staticSer.getPorchCode(ss.propertRecord.ExtAmenities.PorchCode) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Porch Area (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.ExtAmenities.PatioArea || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Patio Area (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.ExtAmenities.PatioArea || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Deck</div>
+      <div class="info-desc">{{staticSer.getDeck(ss.propertRecord.ExtAmenities.DeckFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Deck Area (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.ExtAmenities.DeckArea || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Balcony</div>
+      <div class="info-desc">{{staticSer.getFeatureBalcony(ss.propertRecord.ExtAmenities.FeatureBalconyFlag) || '-'}}
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Balcony Area (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.ExtAmenities.BalconyArea || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Breezeway</div>
+      <div class="info-desc">{{staticSer.getBreezeway(ss.propertRecord.ExtAmenities.BreezewayFlag) || '-'}}</div>
+    </div>
+  </div>
+</div>

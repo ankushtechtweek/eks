@@ -1,0 +1,30 @@
+/* generaldropdown  menu list css*/
+.dropdown-menu-list {
+    padding: 0px;
+    min-width: 136px;
+}
+.dropdown-menu-list li{
+    font-size: 12px;
+    color: #22462F;
+}
+.dropdown-menu-list li a{
+    color: #22462F;
+    opacity: 0.6;
+    padding: 8px 10px;
+    display: block;
+    cursor: pointer;
+}
+.dropdown-menu-list li:hover a,
+.dropdown-menu-list li.active a{
+    opacity: 1;
+}
+/* filter-menu-list css*/
+.dropdown-menu.filter-menu-list {
+    min-width: 136px;
+}
+.filter-menu-list li{
+    padding: 8px 10px;
+}
+.filter-menu-list li .custom-check{
+    display: block;
+}

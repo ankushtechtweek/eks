@@ -1,0 +1,53 @@
+<form [formGroup]="peopleForm">
+  <div class="d-flex align-items-center mb-20">
+    <div class="bar-text">Search</div>
+    <div class="map-form-group">
+      <label class="label-bar">Full Name</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="e.g. Jon Snow"
+        name="name"
+        formControlName="name"
+        [ngClass]="{ 'is-invalid':f['name'].touched && f['name'].errors }"
+      >
+    </div>
+    <div class="map-form-group">
+      <label class="label-bar">City</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="e.g. New York"
+        name="city"
+        formControlName="city"
+        [ngClass]="{ 'is-invalid':f['city'].touched && f['city'].errors }"
+      >
+    </div>
+    <div class="search-bar-container">
+      <label class="label-bar">State</label>
+      <div class="input-group">
+        <select
+          class="map-form-select form-select form-control"
+          formControlName="state"
+          [ngClass]="{ 'is-invalid':f['state'].touched && f['state'].errors }"
+        >
+          <option
+            *ngFor="let state of states"
+            [value]="state.abbreviation"
+          >{{state.name}}</option>
+        </select>
+        <span
+          class="input-group-text"
+          role="button"
+          (click)="onSubmit(peopleForm)"
+        >
+          <img
+            src="assets/icons/icon_search-light.svg"
+            width="16"
+            alt=""
+          >
+        </span>
+      </div>
+    </div>
+  </div>
+</form>

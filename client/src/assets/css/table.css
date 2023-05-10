@@ -1,0 +1,72 @@
+
+/* table row action button ends */
+.table-grid table thead {
+  border-bottom: 1px solid #EBEBEB
+}
+
+.table-grid table thead tr th {
+  color: #002948;
+  font-size: 13px;
+  font-weight: 500;
+  vertical-align: middle
+}
+
+.table-grid table thead tr th .sort-icon {
+  position: relative;
+  padding-right: 11px;
+  display: inline-block
+}
+
+.table-grid table thead tr th .sort-icon::after {
+  content: "";
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #707071;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  margin-top: -1px
+}
+
+.table-grid table tbody tr td {
+  color: #434343;
+  font-size: 13px;
+  font-weight: 400
+}
+
+.table-grid table tbody tr td.text-lighter {
+  opacity: 0.6
+}
+
+.table-grid table tbody tr td .ellipse {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 136px;
+  display: inline-block
+}
+
+.table-grid table tbody tr.active,
+.table-grid table tbody tr:hover {
+  background-color: #EFF9FF !important
+}
+
+.table-grid table tbody tr.active td,
+.table-grid table tbody tr:hover td {
+  color: #0F361D !important;
+  opacity: 1 !important
+}
+
+.orders-text {
+  display: none;
+  font-size: 20pt;
+  font-weight: 300;
+}
+@media (max-width: 767px) {
+  .orders-text {
+      display: inline-flex;
+  }
+  .grid-tabs-wrapper .search-with-btn .btn{
+      font-size: 14pt;
+  }
+}

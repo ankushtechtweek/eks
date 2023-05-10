@@ -1,0 +1,91 @@
+.profile-container {
+    max-width: 1105px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+}
+.profile-container .panel {
+    padding: 0px;
+}
+.profile-container .panel .profile-top-bar {
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(121, 48, 67, 0.3) !important;
+}
+.profile-container .panel-title {
+    font-size: 20px;
+    color: #173043;
+    font-weight: 300;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 15px;
+}
+.profile-container .panel-description {
+    font-size: 14px;
+    color: #173043;
+    font-weight: 300;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 25px;
+    opacity: 0.7;
+}
+.profile-body {
+    display: flex;
+    background: transparent linear-gradient(90deg, #00000000 0%, rgba(0, 0, 0, 0.12) 100%) 0% 0% no-repeat padding-box;
+    mix-blend-mode: multiply;
+}
+.profile-tab-list {
+    width: 321px;
+    box-shadow: 0px 0px 12px #112d3c0d;
+    border-radius: 6px;
+    background-color: #fff;
+}
+.profile-content {
+    width: 100%;
+    flex: 1;
+    margin-left: 6px;
+    background-color: #fff;
+}
+.profile-content .info-title {
+    font-size: 12px;
+    color: #173043;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+.profile-content .info-desc {
+    font-size: 16px;
+    color: #173043;
+    margin-bottom: 10px;
+}
+
+.profile-content-footer {
+    border-top: 1px solid rgba(121, 48, 67, 0.3) !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 15px;
+}
+.profile-content-footer .btn-details {
+    border-radius: 25px;
+    text-transform: uppercase;
+    border: 1px solid #23ABF0;
+    font-weight: 700;
+    /* font-family: 'Europa-Bold'; */
+    padding: 5px 20px;
+    font-size: 12px;
+    color: #55B7FF;
+}
+.profile-content-footer .btn-details:not(:disabled):hover {
+    border-color: #23ABF0;
+    color: #55B7FF;
+}
+.profile-content .tab-content{
+    padding: 30px 34px;
+    min-height: calc(100vh - 280px);
+}

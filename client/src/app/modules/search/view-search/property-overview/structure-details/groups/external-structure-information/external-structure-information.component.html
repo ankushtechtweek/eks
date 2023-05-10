@@ -1,0 +1,30 @@
+<div class="panel-heading text-uppercase">External Structure Information</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">Exterior 1 Code</div>
+      <div class="info-desc">{{staticSer.getExterior1Code(ss.propertRecord.ExtStructInfo.Exterior1Code) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Roof Material</div>
+      <div class="info-desc">{{staticSer.getRoofMaterial(ss.propertRecord.ExtStructInfo.RoofMaterial) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Roof Construction</div>
+      <div class="info-desc">{{staticSer.getRoofConstruction(ss.propertRecord.ExtStructInfo.RoofConstruction) || '-'}}
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Storm Shutter</div>
+      <div class="info-desc">{{staticSer.getStormShutter(ss.propertRecord.ExtStructInfo.StormShutterFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Overhead Door</div>
+      <div class="info-desc">{{staticSer.getOverheadDoor(ss.propertRecord.ExtStructInfo.OverheadDoorFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Structure Style</div>
+      <div class="info-desc">{{ss.propertRecord.ExtStructInfo.StructureStyle || '-'}}</div>
+    </div>
+  </div>
+</div>

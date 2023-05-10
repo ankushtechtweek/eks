@@ -1,0 +1,17 @@
+<div class="panel-heading text-uppercase">Last Sale</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">Date</div>
+      <div class="info-desc">{{(ss.propertRecord.SaleInfo.AssessorLastSaleDate | psDate) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Sale Price</div>
+      <div class="info-desc">{{(ss.propertRecord.SaleInfo.DeedLastSalePrice | currency) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Recorded Mortgage</div>
+      <div class="info-desc">-</div>
+    </div>
+  </div>
+</div>

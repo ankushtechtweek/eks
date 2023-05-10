@@ -1,0 +1,102 @@
+.order-map-image {
+  background-image: linear-gradient(
+      to bottom right,
+      #002948E6, rgba(0, 41, 72, 0)
+    )
+, url('../icons/bg_searchpage.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: bottom;
+  min-height: -webkit-calc(100vh - 71px);
+  min-height: calc(100vh - 71px);
+  position: relative;
+}
+.order-bread-crums {
+  color: #FFFFFF;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+.order-bread-crums .orders-text{
+  font-size: 12px;
+}
+.order-bread-crums .create-order-text{
+  font-size: 16px;
+}
+.order-map-image .bar-text{
+  width: 77px;
+  font-size: 16px;
+  color: #173043;
+  margin-top: 20px;
+}
+.order-map-image .search-bar-container{
+  width: 100%;
+  flex: 1;
+}
+.order-map-image .label-bar{
+  font-size: 11px;
+  font-weight: 500;
+  color: #173043;
+}
+.order-map-image .default-tabs-wrapper{
+max-width: 657px;
+}
+.order-map-image .form-control,
+.order-map-image .map-form-group .form-select {
+  font-size: 12px;
+  border-color: rgba(112, 112, 112, .2);
+  box-shadow: none;
+  color: rgba(23, 48, 67, .5);
+}
+.order-map-image .form-control:focus,
+.order-map-image .map-form-group .form-select:focus {
+  box-shadow: none;
+}
+
+.order-map-image .input-group-text {
+  background: #1189E1
+}
+.order-map-image .tab-content>.active {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.order-map-image .map-form-group:not(:last-child) {
+  width: 130px;
+}
+.order-map-image .map-form-group:not(:first-child) {
+  margin-left: 10px;
+}
+.order-map-image .map-form-group + .search-bar-container {
+  margin-left: 10px;
+}
+
+@media (max-width: 767px) {
+  .order-map-image .map-form-group:not(:first-child),
+  .order-map-image .map-form-group + .search-bar-container {
+      margin-left: 0px;
+  }
+  .default-tabs-container .tab-content-container {
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
+  }
+  .default-tabs-wrapper .tab-content-container .d-flex {
+      display: block !important;
+  }
+  .default-tabs-wrapper .tab-content-container .d-flex .bar-text{
+      font-size: 16pt;
+      margin-top: 0px;
+  }
+  .order-map-image .label-bar {
+      font-size: 11pt;
+  }
+  .order-map-image .map-form-group .form-select,
+  .order-map-image .map-form-group:not(:last-child) {
+      width: 100%;
+  }
+  .order-bread-crums .orders-text {
+      font-size: 12pt;
+  }
+  .order-bread-crums .create-order-text {
+      font-size: 16pt;
+  }
+}

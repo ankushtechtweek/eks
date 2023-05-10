@@ -1,0 +1,35 @@
+<div class="property-details-sections panel">
+  <div class="property-section-header fw-bold">Parcel Map & Photos</div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel-heading text-uppercase">STREET VIEW</div>
+      <div class="panel-body pl-0 pr-0">
+        <div id="streetview-pano"></div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel-heading text-uppercase">SATELLITE VIEW</div>
+      <div class="panel-body pl-0 pr-0">
+        <agm-map
+          #AgmMap
+          [latitude]="0"
+          [zoom]=17
+          [longitude]="0"
+          [mapTypeId]='googleMapType.satellite'
+        >
+          <agm-marker
+            [latitude]="0"
+            [longitude]="0"
+          >
+          </agm-marker>
+        </agm-map>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="panel-heading text-uppercase">MAP VIEW</div>
+      <div class="panel-body pl-0 pr-0">
+        <div id="roadMap"></div>
+      </div>
+    </div>
+  </div>
+</div>

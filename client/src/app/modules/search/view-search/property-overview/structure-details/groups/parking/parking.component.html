@@ -1,0 +1,21 @@
+<div class="panel-heading text-uppercase">Parking</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">RV Parking</div>
+      <div class="info-desc">{{staticSer.getRVParking(ss.propertRecord.Parking.RVParkingFlag) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Parking Space Count</div>
+      <div class="info-desc">{{ss.propertRecord.Parking.ParkingSpaceCount || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Driveway Area</div>
+      <div class="info-desc">{{ss.propertRecord.Parking.DrivewayArea || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Driveway Material</div>
+      <div class="info-desc">{{staticSer.getDrivewayMaterial(ss.propertRecord.Parking.DrivewayMaterial) || '-'}}</div>
+    </div>
+  </div>
+</div>

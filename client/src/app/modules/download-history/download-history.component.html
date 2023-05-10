@@ -1,0 +1,19 @@
+<div class="app-wrapper side-menu-space mt-2">
+  <div class="card">
+    <div class="card-header">
+      <h5 class="d-flex justify-content-between align-items-center mb-0">
+        <div>
+          <em class="fa fa-download"></em> Download History
+        </div>
+      </h5>
+    </div>
+    <div class="card-body">
+      <app-history-table
+        [searches]="searches"
+        [loadingIndicator]="loadingIndicator"
+        [noResultFound]="noResultFound"
+        (page)="pageChangeEvent($event)"
+      ></app-history-table>
+    </div>
+  </div>
+</div>

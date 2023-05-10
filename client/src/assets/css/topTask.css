@@ -1,0 +1,127 @@
+.tasks-section {
+    background-color: #fff;
+    /* background-image: url("../../assets/icons/task.png"); */
+    background-repeat: no-repeat;
+    background-position: 102% 6px;
+    box-shadow: 0px 0px 6px #3E78A333;
+    border-radius: 3px;
+}
+
+@media (max-width: 1250px) {
+    .tasks-section {
+        background-image: none
+    }
+}
+
+.tasks-section .carousel-item .title{
+    font-size: 12px;
+    font-weight: 700;
+    color: #173043;
+    margin-bottom: 10px;
+}
+.tasks-section .date-section {
+    font-weight: 300;
+    font-size: 20px;
+    color: #1189E1;
+}
+
+.tasks-section .date-section .sm-text, .tasks-section .date-section .date-text {
+    color: #002948;
+    font-size: 12px
+}
+
+.tasks-section .slider-section {
+    background-color: #f8faf9;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 12px
+}
+
+.tasks-section .slider-section .task-testimonial .carousel-indicators {
+    top: 0;
+    right: 10px;
+    bottom: auto;
+    margin-left: 0;
+    margin-right: 0;
+    left: auto;
+    background-color: #f8faf9
+}
+
+.tasks-section .slider-section .task-testimonial .carousel-indicators .active {
+    opacity: 1;
+    background-color: #A4BBC1
+}
+
+.tasks-section .slider-section .task-testimonial .carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border: 1px solid #A4BBC1;
+    border-radius: 50%
+}
+
+.tasks-section .slider-section .task-testimonial .tasklist .title {
+    color: #6A8991;
+    font-size: 12px;
+    font-weight: 700
+}
+
+.tasks-section .slider-section .task-testimonial .tasklist .list-group .list-group-item {
+    background: #F0F4F8;
+    border: 1px solid #FFFFFF39;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 400;
+    margin-bottom: 2px;
+    color: #1189E1;
+    padding-top: 3px;
+    padding-bottom: 2px;
+    height: 24px;
+}
+
+.tasks-section .slider-section .task-testimonial .tasklist .list-group .list-group-item .text-trim {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 83%;
+    white-space: nowrap;
+    display: inline-block
+}
+
+.tasks-section .create-client-details {
+    display: flex;
+    align-items: center;
+    /* padding-right: 110px; */
+    /* justify-content: center; */
+}
+.tasks-section .create-client-details .heading {
+    font-size: 17px;
+    color: #263D43;
+    font-weight: 300;
+}
+.tasks-section .create-client-details .list-items {
+    color: #0A62AC;
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+    list-style-type: none;
+    margin-bottom: 0;
+    display: flex;
+    padding-left: 12px
+}
+
+.tasks-section .create-client-details .list-items li {
+    background: #fff;
+    border: 1px solid #DFE1E5;
+    border-radius: 6px;
+    width: 70px;
+    height: 70px;
+    padding: 12px 2px;
+    margin-right: 10px
+}
+
+.tasks-section .create-client-details .list-items li img {
+    margin: auto
+}
+
+.tasks-section .create-client-details .list-items li span {
+    display: block
+}

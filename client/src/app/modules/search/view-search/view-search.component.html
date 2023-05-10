@@ -1,0 +1,133 @@
+<app-mobile-menu [tabScrollEvent]="tabScrollEvent"></app-mobile-menu>
+<div class="app-wrapper side-menu-space">
+  <div class="list-details-breacrum">
+    <ul class="breadcrumb">
+      <li><a
+          role="button"
+          [routerLink]="'/search/new-search/address'"
+        >Search</a></li>
+      <li>{{ss.searchDetails.getValue()?.propertyAddressNavigation?.street}}
+      </li>
+    </ul>
+  </div>
+  <div class="d-flex create-order-details-screen xs-invisible">
+    <div class="order-list-details-left">
+      <div class="list-view property-overview-section">
+        <ul class="list-group">
+          <li class="list-group-item item-details">
+            <div class="d-flex align-items-center justify-content-between">
+              <div class="menu-container"><button
+                  class="hambargur"
+                  id="toggleMenu"
+                  (click)="viewMenu()"
+                ><img
+                    src="assets/icons/menu.svg"
+                    alt=""
+                  /></button>
+              </div>
+              <div>
+                <div class="addr-text">{{ss.searchDetails.getValue()?.propertyAddressNavigation?.street}}</div>
+                <div class="leander-text">{{ss.searchDetails.getValue()?.propertyAddressNavigation?.city}},
+                  {{ss.searchDetails.getValue()?.propertyAddressNavigation?.state?.abbreviation}}
+                  {{ss.searchDetails.getValue()?.propertyAddressNavigation?.zipCode}}</div>
+              </div>
+              <div class="menu-container"><button
+                  class="hambargur"
+                  [routerLink]="'enhancement-docs'"
+                  id="toggleMenu"
+                  placement="auto" ngbTooltip="ENHANCEMENT DOCS, REPORTS & IMAGES"
+                ><img
+                    src="assets/icons/notepad.png"
+                    alt=""
+                  /></button>
+              </div>
+              <label class="star-check">
+                <input
+                  type="checkbox"
+                  hidden
+                  [checked]="ss.searchDetails.getValue()?.isFavourite"
+                  (change)="onStarCheckChange($any($event.target)?.checked,ss.searchDetails.getValue()?.psid)"
+                />
+                <img
+                  class="inactive"
+                  src="assets/icons/icon_whishlist.svg"
+                  alt="icon_whishlist"
+                />
+                <img
+                  class="active"
+                  src="assets/icons/icon_whishlist_active.svg"
+                  alt="icon_whishlist"
+                />
+              </label>
+            </div>
+          </li>
+          <li class="list-group-item item-details prop-heading pt-15 list-line-bottom fw-bold d-none d-sm-block">PROPERTY OVERVIEW</li>
+        </ul>
+      </div>
+      <div class="list-view d-none d-sm-block">
+        <ul class="list-group">
+          <li
+            class="list-group-item hvr-grow p-1"
+            *ngFor="let nav of searchNavs"
+            [class.list-line-bottom]="nav.isPremium"
+          >
+            <a
+              [ngClass]="{'d-flex align-items-center justify-content-between': nav.isPremium, 'icon-list-wrap' : !nav.isPremium  }"
+              role="tab"
+              routerLinkActive="active"
+              [routerLink]="nav.route"
+              (click)="currentRoute = nav.route"
+            >
+              <ng-container *ngIf="!nav.isPremium; else premium">
+                <div class="list-icon">
+                  <img
+                    [src]="nav.icon"
+                    alt="icon_menu"
+                  />
+                </div>
+                <span class="list-title">{{nav.tab}}</span>
+                <em
+                  class="fa fa-lock text-end fs-4 text-secondary"
+                  *ngIf="nav.lock && currentUser.is3DayPlan"
+                ></em>
+              </ng-container>
+              <ng-template #premium>
+                <div class="prop-heading fw-bold">{{nav.tab}}</div>
+                <span class="hightlighter">Pro & Premium</span>
+              </ng-template>
+            </a>
+          </li>
+          <li
+            class="list-group-item hvr-grow p-1"
+            *ngFor="let report of reportNavs"
+          >
+            <a
+              role="tab"
+              routerLinkActive="active"
+              [routerLink]="report.route"
+              (click)="currentRoute = report.route"
+              class="icon-list-wrap"
+            >
+              <div class="list-icon"><img
+                  [src]="report.icon"
+                  alt="icon_menu"
+                /></div>
+              <span class="list-title">{{report.tab}}</span>
+              <em
+                class="fa fa-lock text-end fs-4 text-secondary"
+                *ngIf="report.lock && currentUser.is3DayPlan"
+              ></em>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="order-list-details-right flex-1 scroll-sm" (scroll)="onScroll($event)" #goTop>
+      <div class="tab-content tab-content-container">
+        <div class="property-details-sections panel">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="panel-heading text-uppercase">PROPERTY SIZE</div>
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="info-title">Area Building (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.AreaBuilding || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Area Gross (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.AreaGross || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Area 1st Floor (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.Area1stFloor || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Area 2nd Floor (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.Area2ndFloor || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Area Upper Floors (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.AreaUpperFloors || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Area Lot (Acres)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.AreaLotAcres || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Area Lot (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.AreaLotSF || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Lot Depth (Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.LotDepth || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Lot Width (Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.LotWidth || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Attic Area (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.AtticArea || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Attic</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.AtticFlag || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Basement Area (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.BasementArea || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Basement Area Finished (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.BasementAreaFinished || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Basement Area Unfinished (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.BasementAreaUnfinished || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Parking Garage</div>
+      <div class="info-desc">{{staticSer.getParkingGarage(ss.propertRecord.PropertySize.ParkingGarage) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Parking Garage Area (Sq. Ft.)
+      </div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.ParkingGarageArea || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Parking Carport</div>
+      <div class="info-desc">{{staticSer.getParkingCarport(ss.propertRecord.PropertySize.ParkingCarport) || '-'}}</div>
+    </div>
+    <div class="col-md-3">
+      <div class="info-title">Parking Carport Area (Sq. Ft.)</div>
+      <div class="info-desc">{{ss.propertRecord.PropertySize.ParkingCarportArea || '-'}}</div>
+    </div>
+  </div>
+</div>

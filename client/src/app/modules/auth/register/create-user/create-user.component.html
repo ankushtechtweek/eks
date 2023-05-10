@@ -1,0 +1,220 @@
+<div
+  *ngIf="userForm"
+  class="modal d-block custom-modal modal-lg position-static"
+  tabindex="-1"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Create Account</h4>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          [routerLink]="'/register'"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div
+          class="sr-field-error text-center bg-white text-danger"
+          id="card-errors"
+        ></div>
+        <form
+          class="row g-3"
+          [formGroup]="userForm"
+        >
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              formControlName="firstName"
+              placeholder="First Name"
+              aria-label="firstName"
+              [ngClass]="{ 'is-invalid':f['firstName'].touched && f['firstName'].errors }"
+            >
+            <span
+              *ngIf="f['firstName'].touched && f['firstName'].errors"
+              class="error-message"
+            >
+              <div *ngIf="f['firstName'].errors['required']">First Name is required</div>
+            </span>
+          </div>
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              formControlName="lastName"
+              placeholder="Last Name"
+              aria-label="lastName"
+              [ngClass]="{ 'is-invalid':f['lastName'].touched && f['lastName'].errors }"
+            >
+            <span
+              *ngIf="f['lastName'].touched && f['lastName'].errors"
+              class="error-message"
+            >
+              <div *ngIf="f['lastName'].errors['required']">Last Name is required</div>
+            </span>
+          </div>
+          <div class="col-md-6">
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Email"
+              formControlName="email"
+              aria-label="email"
+              [ngClass]="{ 'is-invalid':f['email'].touched && f['email'].errors }"
+            >
+            <span
+              *ngIf="f['email'].touched && f['email'].errors"
+              class="error-message"
+            >
+              <div *ngIf="f['email'].errors['required']">Email is required</div>
+              <div *ngIf="f['email'].errors['pattern']">Email is invalid</div>
+            </span>
+          </div>
+          <div class="col-md-6">
+            <ngx-intl-tel-input
+              [preferredCountries]="[CountryISO.UnitedStates, CountryISO.UnitedKingdom]"
+              [enableAutoCountrySelect]="false"
+              [enablePlaceholder]="true"
+              [searchCountryFlag]="true"
+              customPlaceholder="Phone Number"
+              [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+              [selectFirstCountry]="false"
+              [selectedCountryISO]="CountryISO.UnitedStates"
+              [cssClass]="f['phone'].touched && f['phone'].errors ? 'form-control is-invalid' : 'form-control'"
+              [maxLength]="15"
+              [phoneValidation]="true"
+              [separateDialCode]="true"
+              name="phone"
+              formControlName="phone"
+              [phoneValidation]="true"
+              (focusout)="focusOut()"
+            ></ngx-intl-tel-input>
+            <span
+              *ngIf="f['phone'].touched && f['phone'].errors"
+              class="error-message"
+            >
+              <div *ngIf="f['phone'].errors['required']">Phone is required</div>
+              <div *ngIf="f['phone'].errors['validatePhoneNumber']">Phone is invalid</div>
+            </span>
+          </div>
+          <div class="col-md-12">
+            <div id="card-element"></div>
+            <div class="mt-3">
+              <img
+                src="assets/icons/v1.png"
+                alt=""
+                class="me-1"
+              />
+              <img
+                src="assets/icons/v2.png"
+                alt="'"
+                class="me-1"
+              />
+              <img
+                src="assets/icons/v3.png"
+                alt="'"
+                class="me-1"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              formControlName="password"
+              placeholder="Password"
+              aria-label="password"
+              [ngClass]="{ 'is-invalid':f['password'].touched && f['password'].errors }"
+            >
+            <span
+              *ngIf="f['password'].touched && f['password'].errors"
+              class="error-message"
+            >
+              <div *ngIf="f['password'].errors['required']">Password is required</div>
+              <div *ngIf="f['password'].errors['pattern']">Use 8-20 characters with a mix of uppercase (A-Z) & lowercase
+                (a-z) letters, numbers & symbols</div>
+            </span>
+          </div>
+          <div class="col-md-6">
+            <input
+              type="password"
+              class="form-control"
+              id="confirm-password"
+              formControlName="confirmPassword"
+              placeholder="Confirm Password"
+              aria-label="confirmPassword"
+              [ngClass]="{ 'is-invalid':f['confirmPassword'].touched && f['confirmPassword'].errors }"
+            >
+            <span
+              *ngIf="f['confirmPassword'].touched && f['confirmPassword'].errors"
+              class="error-message"
+            >
+              <div *ngIf="f['confirmPassword'].errors['required']">Confirm Password is required</div>
+              <div *ngIf="f['confirmPassword'].errors['confirmedValidator']">Those passwords didn't match. Try again.
+              </div>
+            </span>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer p-3 pt-0">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="iUnderstand"
+                [(ngModel)]="isChecked"
+              >
+              <label
+                class="form-check-label"
+                for="iUnderstand"
+              >
+                By clicking the button below, I agree with the<a
+                  href="https://propertyscout.io/terms-conditions/"
+                  role="button"
+                  class="text-decoration-none"
+                  rel="noopener"
+                  target="_blank"
+                >&nbsp;Terms and Conditions</a>. I understand my card will immediately be charged
+                <strong>${{ss.activePlan.getValue().amount}}
+                  USD </strong>{{ss.activePlan.getValue().planName === '3 day plan' ? '.' : 'and '}}<ng-container
+                  *ngIf="ss.activePlan.getValue().planName != '3 day plan'"
+                >then
+                  ${{ss.activePlan.getValue().amount}} USD {{ss.activePlan.getValue().subscription_model}} until I
+                  cancel my
+                  subscription. I can cancel at
+                  any time
+                  through <a
+                    href="https://propertyscout.io/terms-conditions/"
+                    role="button"
+                    class="text-decoration-none"
+                    target="_blank"
+                    rel="noopener"
+                  >&nbsp;Terms and Conditions</a>.</ng-container>
+              </label>
+            </div>
+          </div>
+        </div>
+        <a
+          href="javascript:;"
+          [routerLink]="'/auth/login'"
+          class="text-decoration-none text-center me-auto"
+        >Already have an account? Click here to sign in</a>
+        <button
+          type="button"
+          class="btn orange-btn"
+          [disabled]="!isChecked"
+          (click)="onSubmit()"
+        >{{ss.activePlan.getValue().planName === '3 day plan' ? 'PAY NOW' : 'SUBSCRIBE NOW'}}</button>
+      </div>
+    </div>
+  </div>
+</div>

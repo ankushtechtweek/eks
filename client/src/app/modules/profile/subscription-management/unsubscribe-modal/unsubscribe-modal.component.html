@@ -1,0 +1,52 @@
+<div class="modal-header">
+  <h4 class="modal-title">Cancel Subscription</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  ></button>
+</div>
+<div class="modal-body">
+  <p class="text-muted text-center f-13">You are turning off automatic renewals of your subscription. You will still be
+    able to perform searches until the end of your current billing period.
+  </p>
+  <div class="mb-3">
+    <label class="form-label">Why are you cancelling?</label>
+    <select
+      class="form-select"
+      aria-label="Default select example"
+      [(ngModel)]="selectedReason"
+    >
+      <option value="">Select Reason</option>
+      <option
+        *ngFor="let reason of cancelReasons"
+        [value]="reason"
+      >{{reason}}</option>
+    </select>
+  </div>
+  <div
+    class="mb-3"
+    *ngIf="selectedReason === 'Other'"
+  >
+    <textarea
+      type="text"
+      class="form-control"
+      placeholder="Please be specific and detailed as possible"
+      [(ngModel)]="others"
+    ></textarea>
+  </div>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-dismiss"
+    (click)="activeModal.close(false)"
+  >Maybe later</button>
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="cancelMembership()"
+    [disabled]="!isCancelledDisabled"
+  >Cancel Subscription</button>
+</div>

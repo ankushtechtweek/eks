@@ -1,0 +1,62 @@
+<!-- thumbnail grid start -->
+<div
+  class="section-header text-capitalize h5"
+  *ngIf="searches && searches.length"
+>Recent Searches</div>
+<div class="thumbnail-grid-container mb-20 pr-12">
+  <div class="row">
+    <ng-container *ngIf="searches && searches.length">
+      <div
+        *ngFor="let search of searches"
+        class="col-md-4 thumbnail-grid-item hvr-grow"
+      >
+        <div
+          class="img-thumbnail"
+          role="button"
+          (click)="navigateToSearch(search)"
+        >
+          <div class="grid-content-wrapper">
+            <img
+              [src]="getGoogleImage(search.propertyAddressNavigation)"
+              class="img-fluid"
+              alt="google-image"
+              style="width:100%"
+            >
+            <div
+              class="caption"
+              *ngIf="search.searchType === 'APN';else address"
+            >
+              <h5 class="thumb-heading">
+                APN:{{search.apn}}
+              </h5>
+              <p class="thumb-desc">Last Searched: {{search.createdDate | date: 'MM/dd/yyyy'}}</p>
+            </div>
+            <ng-template #address>
+              <div class="caption">
+                <h5 class="thumb-heading">
+                  {{search.propertyAddressNavigation?.street}}
+                  {{search.propertyAddressNavigation?.city}},
+                  {{search.propertyAddressNavigation?.state?.abbreviation}},
+                  {{search.propertyAddressNavigation?.zipCode}}
+                </h5>
+                <p class="thumb-desc">Last Searched: {{search.createdDate | date: 'MM/dd/yyyy'}}</p>
+              </div>
+            </ng-template>
+            <div class="grid-right-icon-wrapper">
+              <a role="button">
+                <img
+                  height="40"
+                  src="assets/icons/{{search.searchType + '-search' | lowercase}}.png"
+                  alt="icon_orders_active"
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="noResultFound">
+    </ng-container>
+  </div>
+</div>
+<!-- thumbnail grid end -->

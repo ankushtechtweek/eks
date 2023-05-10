@@ -1,0 +1,36 @@
+<section class="tasks-section">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-md-6 slider-section">
+        <div class="row align-items-center">
+          <div class="col-md-4">
+            <article class="date-section">
+              <div class="sm-text fw-bold">{{getDayType}}!</div>
+              <div class="fw-bold">{{currenUser.fullName}}</div>
+              <div class="date-text fw-bold">{{today | date: 'fullDate'}}</div>
+            </article>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="create-client-details justify-content-center justify-content-md-end">
+          <div class="heading fw-bold">Create</div>
+          <ul class="list-items">
+            <li
+              role="button"
+              class="hvr-grow"
+              [routerLink]="'/search/new-search/address'"
+            >
+              <img
+                src="assets/icons/icon_inspection_active.png"
+                width="18"
+                alt="order"
+              >
+              <span>Search</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

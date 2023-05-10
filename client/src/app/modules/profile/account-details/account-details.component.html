@@ -1,0 +1,36 @@
+<div class="accound-details">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="info-title">FIRST NAME:</div>
+      <div class="info-desc">{{currentUser.currentUserValue.firstName}}</div>
+    </div>
+    <div class="col-md-6">
+      <div class="info-title">LAST NAME:</div>
+      <div class="info-desc">{{currentUser.currentUserValue.lastName}}</div>
+    </div>
+    <div class="col-md-6">
+      <div class="info-title">EMAIL</div>
+      <div class="info-desc">{{currentUser.email}}</div>
+    </div>
+    <div class="col-md-6">
+      <div class="info-title">PHONE</div>
+      <div class="info-desc">{{currentUser.phone}}</div>
+    </div>
+    <div class="col-md-6">
+      <div class="info-title">PASSWORD</div>
+      <div><button
+          class="btn-text-link"
+          (click)="changePassword()"
+        >Change Password</button></div>
+    </div>
+    <div class="col-md-6">
+      <div class="info-title">User Status</div>
+      <div class="info-desc">
+        <span
+          class="badge"
+          [ngClass]="currentUser.paymentStatus === 'ACTIVE' ? 'bg-success' : 'bg-danger'"
+        >{{currentUser.paymentStatus}}</span>
+      </div>
+    </div>
+  </div>
+</div>

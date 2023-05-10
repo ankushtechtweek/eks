@@ -1,0 +1,88 @@
+.orders-section .orders-list .list-group .list-group-item {
+    border: 1px solid #fff;
+    border-radius: 6px;
+    margin-bottom: 10px
+}
+
+.orders-section .orders-list .list-group .list-group-item .status {
+    border-radius: 12px;
+    font-size: 11px;
+    color: #fff;
+    line-height: 11px;
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    padding: 2px 5px
+}
+
+.orders-section .orders-list .list-group .list-group-item .order-id {
+    font-size: 14px;
+    color: #0A62AC;
+    font-weight: 400;
+    max-width: 80%;
+}
+
+.orders-section .orders-list .list-group .list-group-item .order-address {
+    font-weight: 400;
+    font-size: 11px;
+    color: #22383E;
+    opacity: 0.5
+}
+
+.orders-section .orders-list .list-group .list-group-item .address {
+    font-weight: 400;
+    font-size: 12px;
+    color: #22383E
+}
+
+.orders-section .orders-list .list-group .list-group-item .address-id {
+    font-size: 11px;
+    color: #6A8991;
+    font-weight: 500
+}
+
+.orders-section .orders-list .list-group .list-group-item .activity-container {
+    display: flex;
+    align-items: center
+}
+
+.orders-section .orders-list .list-group .list-group-item .activity-container .activity-icon {
+    padding-right: 15px
+}
+
+.orders-section .orders-list .list-group .list-group-item .activity-container .activity-icon img {
+    max-width: 100%
+}
+
+.orders-section .orders-list .list-group .list-group-item .activity-container .activity-content {
+    width: calc(100% - 100px);
+    font-size: 14px
+}
+
+@media (max-width: 1250px) {
+    .orders-section .orders-list .list-group .list-group-item .activity-container .activity-content {
+        font-size:12px
+    }
+}
+
+.orders-section .orders-list .list-group .list-group-item .activity-container .activity-content .activity-id {
+    color: #6A8991;
+    font-weight: 500
+}
+
+.orders-section .orders-list .list-group .list-group-item .activity-container .activity-content .activity-status {
+    color: #00A1ED;
+    font-weight: 500
+}
+
+.orders-section .orders-list .list-group .list-group-item .activity-container .activity-content .activity-user {
+    color: #6A8991;
+    font-weight: 500
+}
+
+.orders-section .orders-list .list-group .list-group-item .activity-container .activity-time {
+    font-size: 11px;
+    color: #707070;
+    font-weight: 400;
+    margin-left: auto
+}

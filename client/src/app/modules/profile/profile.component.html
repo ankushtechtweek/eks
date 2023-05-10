@@ -1,0 +1,67 @@
+<div class="app-wrapper side-menu-space mt-2">
+  <div class="card">
+    <div class="card-header bg-white">
+      <div class="row">
+        <div class="col-auto">
+          <div class="mb-0">
+            <h6 class="d-flex justify-content-between align-items-center">
+              <div>
+                <em class="fa fa-user me-2"></em> {{currentUser.fullName}}
+              </div>
+            </h6>
+            <h6 class="d-flex justify-content-between align-items-center">
+              <div>
+                <em class="fa fa-search me-2"></em> <strong>{{currentUser.searchCount}}</strong> {{currentUser.subscriptionType}} searches
+                left
+              </div>
+            </h6>
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-sm-end text-center">
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              (click)="editUser()"
+            >
+              <span class="btn-label"><em class="fa fa-edit me-2"></em></span>EDIT DETAILS</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex create-order-details-screen xs-invisible">
+      <div class="order-list-details-left">
+        <div class="list-view">
+          <ul class="list-group">
+            <li
+              class="list-group-item p-2"
+              *ngFor="let profile of profileNavs"
+            >
+              <a
+                class="icon-list-wrap"
+                routerLinkActive="active"
+                [routerLink]="profile.route"
+              >
+
+                <div class="list-icon">
+                  <img
+                    [src]="profile.icon"
+                    alt="icon_menu"
+                  />
+                </div>
+                <span class="list-title fw-bold">{{profile.tab}}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="order-list-details-right flex-1">
+        <div class="tab-content tab-content-container">
+          <div class="property-details-sections panel">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
