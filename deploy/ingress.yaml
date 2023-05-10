@@ -6,6 +6,7 @@ metadata:
   annotations:
     # Ingress Core Settings
     kubernetes.io/ingress.class: "alb"
+    alb.ingress.kubernetes.io/load-balancer-name: ps-ui-eks-stage-ue2
     alb.ingress.kubernetes.io/scheme: internet-facing
     # Health Check Settings
     alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
