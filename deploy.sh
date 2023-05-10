@@ -16,7 +16,7 @@ display_usage() {
 component=$1
 path=$2
 version=`git rev-parse --short HEAD | cut -c 1-6`
-aws_account=068668040281
+aws_account=653470767467
 
 #build
 docker build --no-cache -t ${component}:${version} -f ${path} .
