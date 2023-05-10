@@ -46,7 +46,7 @@ ingress:
   name: ingress-ps-stage-ui
   #  Namespace: default
   enabled: true
-  #  className: "alb"
+  className: "alb"
   annotations:
     kubernetes.io/ingress.class: "alb"
     alb.ingress.kubernetes.io/load-balancer-name: ps-ui-eks-stage-ue2
